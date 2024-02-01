@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #282c34;
+  background-color: rgb(38, 38, 38);
   color: white;
   font-size: 0.8rem;
   padding: 1rem;
@@ -13,4 +13,9 @@
   display: flex;
   justify-content: center;
   gap: 6vw;
+}
+
+.footer-details li:first-child {
+  font-weight: 900;
+  margin-bottom: 0.4rem;
 }

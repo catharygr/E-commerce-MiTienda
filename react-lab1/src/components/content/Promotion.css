@@ -1,0 +1,9 @@
+.promotion {
+  margin: 1rem auto;
+  background-color: rgb(2, 31, 41);
+  width: 80%;
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}

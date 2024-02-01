@@ -1,7 +1,7 @@
 .header-container {
   display: flex;
   gap: 1rem;
-  background-color: #282c34;
+  background-color: rgb(38, 38, 38);
   color: white;
   padding: 1rem;
   align-items: center;
