@@ -1,0 +1,6 @@
+.nav-ul {
+  display: flex;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}

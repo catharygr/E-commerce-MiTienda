@@ -1,0 +1,23 @@
+.header-container {
+  display: flex;
+  gap: 1rem;
+  background-color: #1c1c1c;
+  color: white;
+  padding: 1rem;
+  align-items: center;
+}
+
+.header-container > form {
+  flex-grow: 1;
+}
+
+.header-container h1 {
+  font-size: 1.3rem;
+}
+
+.search-input {
+  background-color: white;
+  padding: 0.1rem;
+  color: black;
+  font-size: 0.8rem;
+  border-radius: 1rem

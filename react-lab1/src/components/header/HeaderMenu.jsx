@@ -1,3 +1,5 @@
+import "./HeaderMenu.css";
+
 export default function HeaderMenu() {
   const menuData = [
     { id: 1, title: "Inicio" },
@@ -7,7 +9,7 @@ export default function HeaderMenu() {
   ];
   return (
     <nav>
-      <ul>
+      <ul className="nav-ul">
         {menuData.map((item) => (
           <li key={item.id}>{item.title}</li>
         ))}

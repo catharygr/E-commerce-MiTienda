@@ -1,21 +1,22 @@
+import "./HeaderAccountMenu.css";
 import { ShoppingCart, Heart, User } from "react-feather";
 
 export default function HeaderAccountMenu() {
   return (
-    <ul>
+    <ul className="acount-ul">
       <li>
         <a href="/">
-          <ShoppingCart />
+          <ShoppingCart size={20} />
         </a>
       </li>
       <li>
         <a href="/">
-          <Heart />
+          <Heart size={20} />
         </a>
       </li>
       <li>
         <a href="/">
-          <User />
+          <User size={20} />
         </a>
       </li>
     </ul>
