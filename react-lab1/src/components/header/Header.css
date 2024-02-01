@@ -24,3 +24,7 @@
   border-radius: 1rem;
   width: 100%;
 }
+
+.search-input::placeholder {
+  color: #a0a0a0;
+}
