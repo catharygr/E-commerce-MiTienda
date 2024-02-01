@@ -1,7 +1,16 @@
 .footer-container {
-  display: flex;
-  justify-content: center;
-
   background-color: #282c34;
   color: white;
+  font-size: 0.8rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-details {
+  display: flex;
+  justify-content: center;
+  gap: 6vw;
 }
