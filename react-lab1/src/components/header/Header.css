@@ -8,6 +8,7 @@
 }
 
 .header-container > form {
+  display: flex;
   flex-grow: 1;
 }
 
@@ -17,7 +18,9 @@
 
 .search-input {
   background-color: white;
-  padding: 0.1rem;
+  padding: 0.3rem 0.8rem;
   color: black;
   font-size: 0.8rem;
-  border-radius: 1rem
+  border-radius: 1rem;
+  width: 100%;
+}

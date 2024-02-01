@@ -13,7 +13,7 @@ export default function Header() {
           type="text"
           placeholder="Buscar productos"
         />
-        <button type="submit">Buscar</button>
+        <button type="submit"></button>
       </form>
       <HeaderAccountMenu />
     </header>
