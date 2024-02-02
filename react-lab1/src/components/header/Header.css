@@ -21,10 +21,20 @@
   padding: 0.3rem 0.8rem;
   color: black;
   font-size: 0.8rem;
-  border-radius: 1rem;
   width: 100%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .search-input::placeholder {
   color: #a0a0a0;
+}
+
+.header-btn {
+  background-color: white;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  color: black;
+  cursor: pointer;
 }

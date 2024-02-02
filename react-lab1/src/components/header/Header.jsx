@@ -2,6 +2,7 @@
 import HeaderMenu from "./HeaderMenu";
 import HeaderAccountMenu from "./HeaderAccountMenu";
 import { useState } from "react";
+import { Search } from "react-feather";
 import "./Header.css";
 
 export default function Header({ setSearchInputValue }) {
@@ -24,7 +25,9 @@ export default function Header({ setSearchInputValue }) {
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
         />
-        <button type="submit"></button>
+        <button className="header-btn" type="submit">
+          <Search size={18} />
+        </button>
       </form>
       <HeaderAccountMenu />
     </header>
