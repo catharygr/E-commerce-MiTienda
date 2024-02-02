@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import HeaderMenu from "./HeaderMenu";
 import HeaderAccountMenu from "./HeaderAccountMenu";
 import { useState } from "react";
