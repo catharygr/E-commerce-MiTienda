@@ -5,9 +5,9 @@ export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [user, setUser] = useState({
-    name: "",
+    name: "Cathy",
     email: "",
-    isLogged: true,
+    isLogged: false,
     isDarkMode: false,
     shoppingCartItems: [],
   });
