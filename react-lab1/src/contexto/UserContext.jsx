@@ -1,0 +1,20 @@
+/* eslint-disable react/prop-types */
+import { createContext, useState } from "react";
+
+export const UserContext = createContext();
+
+export default function UserProvider({ children }) {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    isLogged: true,
+    isDarkMode: false,
+    shoppingCartItems: [],
+  });
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
