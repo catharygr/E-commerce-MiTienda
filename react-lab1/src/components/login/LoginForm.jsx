@@ -1,9 +1,13 @@
 import "./LoginForm.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../contexto/userContext";
 
 export default function LoginForm() {
   const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    // console.log("El usuario cambió");
+  }, [user]);
 
   console.log(user.isLogged);
   return (
