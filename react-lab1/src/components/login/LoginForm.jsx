@@ -33,9 +33,9 @@ export default function LoginForm() {
         onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
       {user.isLogged ? (
-        <button onClick={handleLogin}>Lagout</button>
+        <button>Lagout</button>
       ) : (
-        <button>Login</button>
+        <button onClick={handleLogin}>Login</button>
       )}
       {user.isLogged && <p>{`¿Quieres cerrar sesión, ${user.name}?`}</p>}
     </form>
