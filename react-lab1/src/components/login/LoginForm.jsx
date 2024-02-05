@@ -1,6 +1,8 @@
+import "./LoginForm.css";
+
 export default function LoginForm() {
   return (
-    <form>
+    <form className="login-form">
       <label htmlFor="name">
         Nombre
         <input type="text" />
