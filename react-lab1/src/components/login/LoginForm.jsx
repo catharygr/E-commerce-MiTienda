@@ -1,15 +1,19 @@
 import "./LoginForm.css";
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../contexto/userContext";
 
 export default function LoginForm() {
   const { user } = useContext(UserContext);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+  });
 
-  useEffect(() => {
-    // console.log("El usuario cambió");
-  }, [user]);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("handleLogin");
+  };
 
-  console.log(user.isLogged);
   return (
     <form className="login-form">
       <label htmlFor="name">Nombre</label>
@@ -17,14 +21,22 @@ export default function LoginForm() {
         type="text"
         name="name"
         id="name"
+        value={form.name}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
       />
       <label htmlFor="email">Email</label>
       <input
         type="email"
         name="email"
         id="email"
+        value={form.email}
+        onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
-      {user.isLogged ? <button>Lagout</button> : <button>Login</button>}
+      {user.isLogged ? (
+        <button onClick={handleLogin}>Lagout</button>
+      ) : (
+        <button>Login</button>
+      )}
       {user.isLogged && <p>{`¿Quieres cerrar sesión, ${user.name}?`}</p>}
     </form>
   );
