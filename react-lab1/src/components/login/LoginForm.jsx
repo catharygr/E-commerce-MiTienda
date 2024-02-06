@@ -8,14 +8,26 @@ export default function LoginForm() {
     name: "",
     email: "",
   });
-
+  // Función que maneja el evento de login
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("handleLogin");
     setUser({
       ...user,
       ...form,
       isLogged: true,
+    });
+    setForm({
+      name: "",
+      email: "",
+    });
+  };
+
+  // Función que maneja el evento de logoff
+  const handleLogoff = (e) => {
+    e.preventDefault();
+    setUser({
+      ...user,
+      isLogged: false,
     });
   };
 
@@ -38,7 +50,7 @@ export default function LoginForm() {
         onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
       {user.isLogged ? (
-        <button>Lagout</button>
+        <button onClick={handleLogoff}>Logoff</button>
       ) : (
         <button onClick={handleLogin}>Login</button>
       )}
