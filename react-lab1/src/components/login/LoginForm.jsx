@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexto/userContext";
 
 export default function LoginForm() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -12,6 +12,11 @@ export default function LoginForm() {
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("handleLogin");
+    setUser({
+      ...user,
+      ...form,
+      isLogged: true,
+    });
   };
 
   return (
