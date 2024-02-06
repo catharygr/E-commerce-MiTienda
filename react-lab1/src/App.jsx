@@ -8,7 +8,6 @@ import LoginForm from "./components/login/LoginForm";
 
 function App() {
   const [searchInputValue, setSearchInputValue] = useState("");
-  console.log(searchInputValue);
   return (
     <>
       <Header setSearchInputValue={setSearchInputValue} />
