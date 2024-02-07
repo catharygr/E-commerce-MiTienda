@@ -1,10 +1,9 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-
-  .notification-cicle-container {
-    position: relative;
-    display: inline-block;
-  }
+}
+.notification-cicle-container {
+  position: relative;
+  display: inline-block;
 }
 .notification-cicle {
   position: absolute;

@@ -1,0 +1,17 @@
+.shopping-card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgb(233, 233, 233);
+}
+.shopping-card-image {
+  max-width: 10rem;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.shopping-card-body {
+  font-size: 1.3rem;
+}

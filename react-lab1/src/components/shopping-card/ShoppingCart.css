@@ -1,0 +1,12 @@
+.shopping-cart-container {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+  gap: 1rem;
+  max-width: 70vw;
+}
+
+.shopping-cart-container h2 {
+  font-size: 2rem;
+  font-weight: 900;
+}
