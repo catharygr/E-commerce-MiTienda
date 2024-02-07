@@ -4,7 +4,7 @@ import data from "../../assets/data.json";
 
 export default function ShoppingCart() {
   return (
-    <main className="shopping-cart-container">
+    <main className="shopping-cart-container notification-cicle">
       <h2>Carrito de Compras</h2>
       <Card product={data[1]} />
       <Card product={data[2]} />
