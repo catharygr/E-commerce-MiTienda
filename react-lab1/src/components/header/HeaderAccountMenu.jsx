@@ -24,8 +24,12 @@ export default function HeaderAccountMenu({ setRoute }) {
       <li onClick={handleTheme}>
         {!user.isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
       </li>
-      <li onClick={() => setRoute("shopping-cart")}>
+      <li
+        className="notification-cicle-container"
+        onClick={() => setRoute("shopping-cart")}
+      >
         <ShoppingCart size={20} />
+        <span className="notification-cicle">5</span>
       </li>
     </ul>
   );

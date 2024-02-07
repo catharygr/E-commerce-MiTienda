@@ -1,7 +1,17 @@
 /* eslint-disable react/prop-types */
 import "./ProductCard.css";
+import { UserContext } from "../../contextos/UserContext";
+import { useContext } from "react";
 
 export default function ProductCard({ product }) {
+  const { user, setUser } = useContext(UserContext);
+
+  const handleAddToCart = () => {
+    setUser({
+      ...user,
+      shoppingCartItems: [...user.shoppingCartItems, product.id],
+    });
+  };
   return (
     <div className="product-card">
       <img
@@ -14,7 +24,12 @@ export default function ProductCard({ product }) {
         <p className="card-description">{product.description}</p>
         <p className="card-price">{product.price}€</p>
       </div>
-      <button className="card-btn">Agregar carrito</button>
+      <button
+        onClick={handleAddToCart}
+        className="card-btn"
+      >
+        Agregar carrito
+      </button>
     </div>
   );
 }

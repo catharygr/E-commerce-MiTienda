@@ -1,3 +1,20 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+
+  .notification-cicle-container {
+    position: relative;
+    display: inline-block;
+  }
+}
+.notification-cicle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(64, 129, 254);
+  color: white;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transform: translate(50%, -50%);
 }
