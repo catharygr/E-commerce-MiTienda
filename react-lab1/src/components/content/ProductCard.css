@@ -38,3 +38,14 @@
   font-weight: 900;
   color: rgb(64, 129, 254);
 }
+
+.card-btn {
+  padding: 0.5rem;
+  background-color: rgb(64, 129, 254);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
