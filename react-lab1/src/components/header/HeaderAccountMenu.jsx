@@ -29,7 +29,11 @@ export default function HeaderAccountMenu({ setRoute }) {
         onClick={() => setRoute("shopping-cart")}
       >
         <ShoppingCart size={20} />
-        <span className="notification-cicle">5</span>
+        {user.shoppingCartItems.length !== 0 && (
+          <span className="notification-cicle">
+            {user.shoppingCartItems.length}
+          </span>
+        )}
       </li>
     </ul>
   );

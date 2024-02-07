@@ -10,7 +10,7 @@ export default function UserProvider({ children }) {
         name: "",
         email: "",
         isLogged: false,
-        isDarkMode: false,
+        isDarkMode: true,
         shoppingCartItems: [],
       }
   );
