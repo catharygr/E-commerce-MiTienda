@@ -1,8 +1,13 @@
 import "./Footer.css";
+import { UserContext } from "../../contexto/userContext";
+import { useContext } from "react";
 
 export default function Footer() {
+  const { user } = useContext(UserContext);
   return (
-    <footer className="footer-container">
+    <footer
+      className={`footer-container ${user.isDarkMode ? "dark-mode" : "light-mode"}`}
+    >
       <div className="footer-details">
         <ul>
           <li>Contacto</li>

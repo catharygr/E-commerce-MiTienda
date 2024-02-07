@@ -1,10 +1,17 @@
 .header-container {
   display: flex;
   gap: 1rem;
-  background-color: rgb(38, 38, 38);
-  color: white;
   padding: 1rem;
   align-items: center;
+}
+
+.dark-mode {
+  background-color: rgb(38, 38, 38);
+  color: white;
+}
+.light-mode {
+  background-color: #f0f0f0;
+  color: rgb(38, 38, 38);
 }
 
 .header-container > form {
