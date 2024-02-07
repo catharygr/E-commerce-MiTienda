@@ -3,7 +3,7 @@ import HeaderMenu from "./HeaderMenu";
 import HeaderAccountMenu from "./HeaderAccountMenu";
 import { useState } from "react";
 import { Search } from "react-feather";
-import { UserContext } from "../../contexto/userContext";
+import { UserContext } from "../../contextos/userContext";
 import { useContext } from "react";
 import "./Header.css";
 

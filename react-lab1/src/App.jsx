@@ -5,6 +5,7 @@ import Promotion from "./components/content/Promotion";
 import MainContent from "./components/content/MainContent";
 import { useState } from "react";
 import LoginForm from "./components/login/LoginForm";
+import ShoppingCart from "./components/shopping-card/ShoppingCart";
 
 function App() {
   const [searchInputValue, setSearchInputValue] = useState("");
@@ -12,7 +13,8 @@ function App() {
     <>
       <Header setSearchInputValue={setSearchInputValue} />
       <Promotion />
-      <MainContent searchInputValue={searchInputValue} />
+      <ShoppingCart />
+      {/* <MainContent searchInputValue={searchInputValue} /> */}
       <LoginForm />
       <Footer />
     </>
