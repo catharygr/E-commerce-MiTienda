@@ -3,11 +3,11 @@ import HeaderMenu from "./HeaderMenu";
 import HeaderAccountMenu from "./HeaderAccountMenu";
 import { useState } from "react";
 import { Search } from "react-feather";
-import { UserContext } from "../../contextos/userContext";
+import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 import "./Header.css";
 
-export default function Header({ setSearchInputValue }) {
+export default function Header({ setSearchInputValue, setRouter }) {
   const [formValue, setFormValue] = useState("");
   const { user } = useContext(UserContext);
 

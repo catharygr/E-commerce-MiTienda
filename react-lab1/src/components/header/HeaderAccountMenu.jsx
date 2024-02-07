@@ -1,7 +1,7 @@
 import "./HeaderAccountMenu.css";
 import { ShoppingCart, Heart, User, Moon, Sun } from "react-feather";
 import { useContext } from "react";
-import { UserContext } from "../../contextos/userContext";
+import { UserContext } from "../../contextos/UserContext";
 
 export default function HeaderAccountMenu() {
   const { user, setUser } = useContext(UserContext);

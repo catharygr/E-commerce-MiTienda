@@ -1,6 +1,6 @@
 import "./LoginForm.css";
 import { useContext, useState } from "react";
-import { UserContext } from "../../contextos/userContext";
+import { UserContext } from "../../contextos/UserContext";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
