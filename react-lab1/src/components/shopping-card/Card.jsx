@@ -11,7 +11,7 @@ export default function Card({ product }) {
           src={image}
           alt={title}
         />
-        <span>5</span>
+        <span className="notification-cicle">5</span>
       </div>
       <div className="shopping-card-body">
         <p>{title}</p>
