@@ -1,4 +1,4 @@
-# qualentum-react-lab1
+# Qualentum-react-lab1
  
 ## Flujo de la App
 - Basándome en la estructura de la aplicación, he situado el estado en el componente App.jsx. Este estado almacena el valor que el usuario busca a través del componente Header y posteriormente se lo pasa al componente MainContent.
