@@ -2,7 +2,7 @@
 import "./Card.css";
 
 export default function Card({ product }) {
-  const { image, title, price } = product;
+  const { image, title, price, quantity } = product;
   return (
     <div className="shopping-card-container">
       <div className="notification-cicle-card-container">
@@ -11,12 +11,12 @@ export default function Card({ product }) {
           src={image}
           alt={title}
         />
-        <span className="notification-cicle-card">5</span>
+        <span className="notification-cicle-card">{quantity}</span>
       </div>
       <div className="shopping-card-body">
         <p>{title}</p>
-        <p>Precio por unidad: {price}</p>
-        <p>Precio total: $345.20</p>
+        <p>Precio por unidad: {price}€</p>
+        <p>{price * quantity}€</p>
       </div>
     </div>
   );

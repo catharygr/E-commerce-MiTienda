@@ -10,3 +10,10 @@
   font-size: 2rem;
   font-weight: 900;
 }
+
+.total {
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-top: 1rem;
+}
