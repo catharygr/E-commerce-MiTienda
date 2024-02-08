@@ -6,6 +6,8 @@ const formReducer = (state, action) => {
       return { ...state, name: action.payload };
     case "SET_EMAIL":
       return { ...state, email: action.payload };
+    case "RESET":
+      return { name: "", email: "" };
     default:
       return state;
   }
@@ -22,5 +24,9 @@ export default function useForm() {
   const setEmail = (email) => {
     dispatch({ type: "SET_EMAIL", payload: email });
   };
-  return { form, setName, setEmail };
+  const reset = () => {
+    dispatch({ type: "RESET" });
+  };
+
+  return { form, setName, setEmail, reset };
 }

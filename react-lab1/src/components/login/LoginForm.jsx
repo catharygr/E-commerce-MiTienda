@@ -1,13 +1,12 @@
 import "./LoginForm.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
+import useForm from "../../custom-hooks/useForm";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-  });
+  const { form, setName, setEmail, reset } = useForm();
+
   // Función que maneja el evento de login
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,10 +15,7 @@ export default function LoginForm() {
       ...form,
       isLogged: true,
     });
-    setForm({
-      name: "",
-      email: "",
-    });
+    reset();
   };
 
   // Función que maneja el evento de logoff
@@ -39,7 +35,7 @@ export default function LoginForm() {
         name="name"
         id="name"
         value={form.name}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
+        onChange={(e) => setName(e.target.value)}
       />
       <label htmlFor="email">Email</label>
       <input
@@ -47,7 +43,7 @@ export default function LoginForm() {
         name="email"
         id="email"
         value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
+        onChange={(e) => setEmail(e.target.value)}
       />
       {user.isLogged ? (
         <button onClick={handleLogoff}>Logoff</button>
