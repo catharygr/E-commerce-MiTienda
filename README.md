@@ -30,7 +30,7 @@
 - Lo uso para renderizar diferentes partes de la aplicación y en este caso son los componentes mainContent cuando hago click al logo y shoppingCart cuando hago click al carrito de compra.
 
 ## Modo de tema de color
-- en el Header he importado el contexto de usuario y cuando se hace click al icono se actualiza el contexto de usuario con su nueva preferencia representada con un boleano, a base de este boleano aplico diferentes clases de css a los elementos donde se cambia el color y se intercambia el icono de modo de colores.
+- En el Header he importado el contexto de usuario y cuando se hace click al icono se actualiza el contexto de usuario con su nueva preferencia representada con un boleano, a base de este boleano aplico diferentes clases de css a los elementos donde se cambia el color y se intercambia el icono de modo de colores.
 
 ## Promotion
 - Utilizo ambos contextos el de usuario y el de ruta para cambiar el contenido de la promoción.
@@ -45,10 +45,10 @@
 
 ## Formulario para loguear 
 - Este formulario también modifica el contexto de usuario con el value captado que serían el nombre, email y si es†á logueado o no.
-- He aprovechado el state de los inputs del formulario para utlizar los dos hooks useReducer y custom hooks
+- He aprovechado el state de los inputs del formulario para utlizar los dos hooks, useReducer y custom hooks
 - He creado un custom hooks useForm dentro de el he utilizado useReducer con el estado inicial de un objecto con name y email.
-- Tres funciones setName , setEmail, reset que despachan type y las primera dos también payload que en este caso seria el value de cada elemento input en el formulario.
+- Tres funciones setName , setEmail, reset que despachan type y las primera dos también payload que en este caso sería el value de cada elemento input en el formulario.
 - Al final se retorna las tres funciones y el estado form.
-- Este customs hooks se importa en el formulario para loguear donde se consume sus funciones y estado para actualizar el contexto global del usuario y así quedará mas limpio.
+- Este customs hooks se importa en el formulario para loguear donde se consume sus funciones y estado para actualizar el contexto global del usuario y así quedará más limpio.
 
 Un saludo.
