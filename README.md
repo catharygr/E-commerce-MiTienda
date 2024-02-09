@@ -1,4 +1,4 @@
-# Qualentum-react-lab1
+# Qualentum React: Lab2, Lab1
 
  
 ## Flujo de la App
