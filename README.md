@@ -36,7 +36,7 @@
 - Utilizo ambos contextos el de usuario y el de ruta para cambiar el contenido de la promoción.
 
 ## Botón de añadir el carrito
-- Este bo†ón también actualiza el contexto de usuario añadiendo el id del producto a un array que es el que representa los productos en el carrito de compra, y que utlizaremos para construirlo.
+- Este botón también actualiza el contexto de usuario añadiendo el id del producto a un array que es el que representa los productos en el carrito de compra, y que utlizaremos para construirlo.
 
 ## ShoppingCart
 - La lógica del shoppingCart la he desarrollado de la siguiente manera: Iterando sobre el array de productos en el contexto de usuario, he creado un objecto donde key es el id del producto y su valor es el número de veces que se añadió al array de productos.
