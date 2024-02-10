@@ -1,5 +1,7 @@
 # Qualentum React: Lab2, Lab1
 
+### He conectado mi repositorio con Netlify para que lo puedas ver el resultado del problema sin que tengas que bajar el repositorio.
+https://qualentum-ecommerce-catary.netlify.app
  
 ## Flujo de la App
 - Basándome en la estructura de la aplicación, he situado el estado en el componente App.jsx. Este estado almacena el valor que el usuario busca a través del componente Header y posteriormente se lo pasa al componente MainContent.
