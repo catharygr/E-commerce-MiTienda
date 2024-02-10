@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { UserContext } from "../../contextos/userContext";
+import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 
 export default function Footer() {
