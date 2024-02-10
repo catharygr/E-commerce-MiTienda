@@ -14,7 +14,7 @@ export default function Header({ setSearchInputValue, setRoute }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchInputValue(formValue);
-    console.log(formValue);
+    setFormValue("");
   };
   return (
     <header
