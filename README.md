@@ -1,4 +1,4 @@
-# Qualentum React: Lab2, Lab1
+# Qualentum React: Lab3, Lab2, Lab1
 
 ### He conectado mi repositorio con Netlify para que lo puedas ver el resultado del problema sin que tengas que bajar el repositorio.
 https://qualentum-ecommerce-catary.netlify.app
