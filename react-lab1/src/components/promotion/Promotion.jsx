@@ -1,29 +1,23 @@
-import "./Promotion.css";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useMemo } from "react";
 import { useLocation } from "react-router-dom";
+import "./Promotion.css";
 
 export default function Promotion() {
   const { user } = useContext(UserContext);
-  console.log(user);
   const location = useLocation();
-  const route = location.pathname.split("/")[1];
-  const [banner, setBanner] = useState("");
+  const route = useMemo(() => location.pathname.split("/")[1], [location]);
 
-  useEffect(() => {
-    let newBanner = "";
+  const banner = useMemo(() => {
     if (user.isLogged && route === "") {
-      newBanner = <p>{user.name}, aprovéchate de tu 20% de descuento!</p>;
+      return <p>{user.name}, aprovéchate de tu 20% de descuento!</p>;
     } else if (!user.isLogged && route === "cart") {
-      newBanner = <p>Crea una cuenta para disfrutar de nuestros descuentos</p>;
+      return <p>Crea una cuenta para disfrutar de nuestros descuentos</p>;
     } else if (user.isLogged && route === "cart") {
-      newBanner = (
-        <p>{user.name}, los 20% se aplicarán al final de la compra</p>
-      );
+      return <p>{user.name}, los 20% se aplicarán al final de la compra</p>;
     } else {
-      newBanner = <p>¡20% de descuento para nuevos clientes!</p>;
+      return <p>¡20% de descuento para nuevos clientes!</p>;
     }
-    setBanner(newBanner);
   }, [user, route]);
 
   return <div className="promotion">{banner}</div>;
