@@ -5,8 +5,10 @@ import { useLocation } from "react-router-dom";
 
 export default function Promotion() {
   const { user } = useContext(UserContext);
+  console.log(user);
   const location = useLocation();
   const route = location.pathname.split("/")[1];
+  console.log(route);
 
   const banner = () => {
     if (user.isLogged && route === "") {
