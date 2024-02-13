@@ -1,0 +1,15 @@
+.error-container {
+  max-width: 40rem;
+  margin: 5rem auto;
+  padding: 1rem;
+}
+
+.error-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-link {
+  text-decoration: underline;
+  color: blue;
+}

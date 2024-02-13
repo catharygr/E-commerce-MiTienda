@@ -7,20 +7,20 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 import "./Header.css";
 
-export default function Header({ setSearchInputValue, setRoute }) {
+export default function Header() {
   const [formValue, setFormValue] = useState("");
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchInputValue(formValue);
+    setUser((prev) => ({ ...prev, searchValue: formValue }));
     setFormValue("");
   };
   return (
     <header
       className={`header-container ${user.isDarkMode ? "dark-mode" : "light-mode"}`}
     >
-      <h1 onClick={() => setRoute("content")}>MiTienda</h1>
+      <h1>MiTienda</h1>
       <HeaderMenu />
       <form onSubmit={handleSubmit}>
         <input
@@ -37,7 +37,7 @@ export default function Header({ setSearchInputValue, setRoute }) {
           <Search size={18} />
         </button>
       </form>
-      <HeaderAccountMenu setRoute={setRoute} />
+      <HeaderAccountMenu />
     </header>
   );
 }
