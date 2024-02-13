@@ -26,6 +26,7 @@ export default function LoginForm() {
         ...form,
         isLogged: true,
       });
+      console.log(user);
       reset();
     }
   };
