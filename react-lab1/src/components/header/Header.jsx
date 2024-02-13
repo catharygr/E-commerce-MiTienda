@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Search } from "react-feather";
 import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
@@ -14,13 +15,14 @@ export default function Header() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setUser((prev) => ({ ...prev, searchValue: formValue }));
-    setFormValue("");
   };
   return (
     <header
       className={`header-container ${user.isDarkMode ? "dark-mode" : "light-mode"}`}
     >
-      <h1>MiTienda</h1>
+      <Link to="/">
+        <h1>MiTienda</h1>
+      </Link>
       <HeaderMenu />
       <form onSubmit={handleSubmit}>
         <input
