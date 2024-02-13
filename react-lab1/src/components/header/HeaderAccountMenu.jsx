@@ -4,7 +4,7 @@ import { ShoppingCart, Heart, User, Moon, Sun } from "react-feather";
 import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
 
-export default function HeaderAccountMenu({ setRoute }) {
+export default function HeaderAccountMenu() {
   const { user, setUser } = useContext(UserContext);
 
   const handleTheme = () => {
@@ -24,10 +24,7 @@ export default function HeaderAccountMenu({ setRoute }) {
       <li onClick={handleTheme}>
         {!user.isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
       </li>
-      <li
-        className="notification-cicle-container"
-        onClick={() => setRoute("shopping-cart")}
-      >
+      <li className="notification-cicle-container">
         <ShoppingCart size={20} />
         {user.shoppingCartItems.length !== 0 && (
           <span className="notification-cicle">
