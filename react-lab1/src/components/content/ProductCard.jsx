@@ -24,12 +24,14 @@ export default function ProductCard({ product }) {
         <p className="card-description">{product.description}</p>
         <p className="card-price">{product.price}€</p>
       </div>
-      <button
-        onClick={handleAddToCart}
-        className="card-btn"
-      >
-        Agregar carrito
-      </button>
+      {user.isLogged && (
+        <button
+          onClick={handleAddToCart}
+          className="card-btn"
+        >
+          Agregar carrito
+        </button>
+      )}
     </div>
   );
 }
