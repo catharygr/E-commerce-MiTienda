@@ -1,10 +1,12 @@
 import "./Promotion.css";
 import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";}
 
 export default function Promotion() {
   const { user } = useContext(UserContext);
-  const route = window.location.pathname.split("/")[1];
+  const location = useLocation();
+  const route = location.pathname.split("/")[1];
 
   const banner = () => {
     if (user.isLogged && route === "/") {
