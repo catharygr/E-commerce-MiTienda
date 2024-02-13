@@ -1,6 +1,6 @@
 import "./Promotion.css";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function Promotion() {
@@ -8,18 +8,23 @@ export default function Promotion() {
   console.log(user);
   const location = useLocation();
   const route = location.pathname.split("/")[1];
-  console.log(route);
+  const [banner, setBanner] = useState("");
 
-  const banner = () => {
+  useEffect(() => {
+    let newBanner = "";
     if (user.isLogged && route === "") {
-      return <p>{user.name}, aprovéchate de tu 20% de descuento!</p>;
+      newBanner = <p>{user.name}, aprovéchate de tu 20% de descuento!</p>;
     } else if (!user.isLogged && route === "cart") {
-      return <p>Crea una cuenta para disfrutar de nuestros descuentos</p>;
+      newBanner = <p>Crea una cuenta para disfrutar de nuestros descuentos</p>;
     } else if (user.isLogged && route === "cart") {
-      return <p>{user.name}, los 20% se aplicarán al final de la compra</p>;
+      newBanner = (
+        <p>{user.name}, los 20% se aplicarán al final de la compra</p>
+      );
     } else {
-      return <p>¡20% de descuento para nuevos clientes!</p>;
+      newBanner = <p>¡20% de descuento para nuevos clientes!</p>;
     }
-  };
-  return <div className="promotion">{banner()}</div>;
+    setBanner(newBanner);
+  }, [user, route]);
+
+  return <div className="promotion">{banner}</div>;
 }
