@@ -1,0 +1,14 @@
+.promotion {
+  margin: 1rem auto;
+  background-color: rgb(2, 31, 41);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(33, 37, 89, 1) 100%
+  );
+  width: 80%;
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
