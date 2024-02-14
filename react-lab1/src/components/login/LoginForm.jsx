@@ -2,10 +2,13 @@ import "./LoginForm.css";
 import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
 import useForm from "../../custom-hooks/useForm";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
   const { form, setName, setEmail, reset } = useForm();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Función que maneja el evento de submit
   const handleSubmit = (e) => {
@@ -27,6 +30,7 @@ export default function LoginForm() {
         isLogged: true,
       });
       reset();
+      navigate(location.state.pathname);
     }
   };
 
