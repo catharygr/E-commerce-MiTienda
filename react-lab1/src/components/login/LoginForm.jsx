@@ -19,6 +19,7 @@ export default function LoginForm() {
         ...user,
         isLogged: false,
       });
+      navigate("/");
     } else if (!user.isLogged) {
       if (!form.name || !form.email) {
         alert("Por favor, rellena todos los campos");
