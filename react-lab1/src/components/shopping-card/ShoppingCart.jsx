@@ -35,6 +35,10 @@ export default function ShoppingCart() {
         );
       })}
       <p className="total">Total a Pagar: {total.toFixed(2)}€</p>
+      <div className="cart-btn-container">
+        <button className="btn-comprar">Comprar</button>
+        <button className="btn-resetear">Resetear Carro</button>
+      </div>
     </main>
   );
 }
