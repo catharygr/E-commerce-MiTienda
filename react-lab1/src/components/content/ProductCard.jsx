@@ -22,12 +22,12 @@ export default function ProductCard({ product }) {
           alt={product.title}
         />
       </Link>
-
       <div className="card-body">
         <h3 className="card-title">{product.title}</h3>
         <p className="card-description">{product.description}</p>
         <p className="card-price">{product.price}€</p>
       </div>
+
       {user.isLogged && (
         <button
           onClick={handleAddToCart}
