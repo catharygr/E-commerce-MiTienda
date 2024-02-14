@@ -31,7 +31,7 @@ export default function LoginForm() {
         isLogged: true,
       });
       reset();
-      navigate(location.state.pathname);
+      navigate(location.state?.pathname);
     }
   };
 
