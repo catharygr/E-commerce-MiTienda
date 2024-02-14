@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         element: <MainContent />,
       },
       {
-        path: "product/:id",
+        path: "/product/:id",
         element: (
           <ProtectedRouter>
             <ProductDetails />
@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "cart",
+        path: "/cart",
         element: (
           <ProtectedRouter>
             <ShoppingCart />
@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "login",
+        path: "/login",
         element: <LoginForm />,
       },
     ],
