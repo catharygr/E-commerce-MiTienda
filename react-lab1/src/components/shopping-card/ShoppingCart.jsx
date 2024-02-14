@@ -5,7 +5,7 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 
 export default function ShoppingCart() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const productCounter = {};
   user.shoppingCartItems.forEach((id) => {
@@ -23,6 +23,14 @@ export default function ShoppingCart() {
     return acc + product.price * product.quantity;
   }, 0);
 
+  const handleCheckout = () => {
+    alert("Serás redirigido a la pasarela de pago");
+    setUser({ ...user, shoppingCartItems: [] });
+  };
+
+  const handleReset = () => {
+    setUser({ ...user, shoppingCartItems: [] });
+  };
   return (
     <main className="shopping-cart-container">
       <h2>Carrito de Compras</h2>
@@ -36,8 +44,18 @@ export default function ShoppingCart() {
       })}
       <p className="total">Total a Pagar: {total.toFixed(2)}€</p>
       <div className="cart-btn-container">
-        <button className="btn-comprar">Comprar</button>
-        <button className="btn-resetear">Resetear Carro</button>
+        <button
+          onClick={handleCheckout}
+          className="btn-comprar"
+        >
+          Comprar
+        </button>
+        <button
+          onClick={handleReset}
+          className="btn-resetear"
+        >
+          Resetear Carro
+        </button>
       </div>
     </main>
   );
