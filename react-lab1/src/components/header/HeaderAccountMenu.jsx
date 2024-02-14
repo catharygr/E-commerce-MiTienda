@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import "./HeaderAccountMenu.css";
-import { ShoppingCart, Heart, User, Moon, Sun } from "react-feather";
+import { ShoppingCart, Heart, User, Moon, Sun, Bold } from "react-feather";
 import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
 import { Link } from "react-router-dom";
@@ -18,7 +18,15 @@ export default function HeaderAccountMenu() {
     <ul className="acount-ul">
       <li>
         <Link to="/login">
-          <User size={20} />
+          {
+            <User
+              size={20}
+              color={
+                user.isLogged ? "green" : user.isDarkMode ? "white" : "black"
+              }
+              fontWeight={900}
+            />
+          }
         </Link>
       </li>
       <li>
