@@ -5,6 +5,7 @@ import MainContent from "../components/content/MainContent";
 import ShoppingCart from "../components/shopping-card/ShoppingCart";
 import LoginForm from "../components/login/LoginForm";
 import ProtectedRouter from "../components/protected-router/ProtectedRouter";
+import ProductDetails from "../components/product-details/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,14 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <MainContent />,
+      },
+      {
+        path: "product/:id",
+        element: (
+          <ProtectedRouter>
+            <ProductDetails />
+          </ProtectedRouter>
+        ),
       },
       {
         path: "cart",
