@@ -54,3 +54,12 @@ https://qualentum-ecommerce-catary.netlify.app
 - Este customs hooks se importa en el formulario para loguear donde se consume sus funciones y estado para actualizar el contexto global del usuario y así quedará más limpio.
 
 Un saludo.
+
+# Lab 3
+
+## Configuracion del Router
+- Usando createBrowserRouter() hook he creado en un documento separado configurando todas mis rutas.
+- Dos de ellas he protegido con un componente "ProtectedRoutes"
+- Una capta todas no existentes y presenta pagina de 404
+- Y en el nivel superior he puesto un componente "Layout" con header, banner, futter y "outlet" para el resto de rutas anidadas
+
