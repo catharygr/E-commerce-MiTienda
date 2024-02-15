@@ -53,13 +53,58 @@ https://qualentum-ecommerce-catary.netlify.app
 - Al final se retorna las tres funciones y el estado form.
 - Este customs hooks se importa en el formulario para loguear donde se consume sus funciones y estado para actualizar el contexto global del usuario y así quedará más limpio.
 
-Un saludo.
 
 # Lab 3
 
-## Configuracion del Router
-- Usando createBrowserRouter() hook he creado en un documento separado configurando todas mis rutas.
-- Dos de ellas he protegido con un componente "ProtectedRoutes"
-- Una capta todas no existentes y presenta pagina de 404
-- Y en el nivel superior he puesto un componente "Layout" con header, banner, futter y "outlet" para el resto de rutas anidadas
+## Configuracion del Router con React-Router-Dom
+
+## Main.jsx
+-He utilizado UserProvider para proporcionar un contexto de usuario y RouterProvider para manejar el enrutamiento.
+
+## createBrowserRouter()
+-He definido las rutas de la aplicación, incluyendo la ruta raíz ("/"), "/product/:id", "/cart", y una ruta de comodín ("*") para rutas no definidas.
+
+## Layout.jsx
+- Este componente renderiza 4 componentes: Header, Promotion, Footer y Outlet para el resto de rutas anidadas
+
+## Header.jsx
+- He utilizado <Link></Link> para crear un enlace de navegación a la página de inicio y un formulario de búsqueda que actualiza los parámetros de búsqueda.
+
+## MainContent.jsx
+- Este componente muestra una lista de productos. He utilizado el hook useSearchParams para obtener el valor del parámetro de búsqueda "search" de la URL. Este valor se utiliza para filtrar los productos que se muestran, basándose en el título del producto. Los productos filtrados se mapean a componentes ProductCard y se renderizan.
+
+## LoginForm.jsx
+- He utilizado el hook useNavigate para redirigir al usuario a la página de inicio cuando cierra sesión, y a la última página visitada cuando inicia sesión.
+- Y useLocation para obtener la última ruta visitada por el usuario antes de iniciar sesión. Cuando el usuario inicia sesión, se le redirige a esta ruta.
+
+## Promotion.jsx
+- He utilizado useLocation para obtener la ruta actual en la que se encuentra el usuario. La ruta se extrae de location.pathname y se divide para obtener la parte relevante de la ruta.
+
+## ProductDetails.jsx
+- He  utilizado useParams para obtener el id del producto de la ruta y que muestre los detalles del producto. Le he proporcionado un botón para agregar el producto al carrito de compras.
+
+## ShoppingCart.jsx
+- He desarrollado una función handleCheckout() que se activa cuando el usuario decide finalizar la compra y vacíar el carrito de compras.
+
+## ProtectedRouter.jsx
+-  Es el componente que protege las rutas que requieren autenticación y utiliza useLocation para guardar la ubicación actual antes de redirigir al usuario.
+
+Un saludo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
