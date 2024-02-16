@@ -3,10 +3,13 @@ import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import data from "../../assets/data.json";
 import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import Modal from "./Modal";
 
 export default function MainContent() {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   function filterProducts() {
     if (!search) {
@@ -24,5 +27,10 @@ export default function MainContent() {
     />
   ));
 
-  return <main className="main-container">{mapeo}</main>;
+  return (
+    <>
+      <main className="main-container">{mapeo}</main>;
+      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
+    </>
+  );
 }
