@@ -46,11 +46,11 @@ export default function ProductCard({ product }) {
         </button>
       )}
       <div className="edit-delete-btn">
-        <button className="edit-btn">
+        <button>
           <Edit2 />
         </button>
-        <button className="delete-btn">
-          <Trash2 />
+        <button>
+          <Trash2 color={"red"} />
         </button>
       </div>
       <button className="new-item-btn">Add new Product</button>

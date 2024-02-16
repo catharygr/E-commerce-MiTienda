@@ -54,10 +54,25 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 0.5rem;
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
+  cursor: pointer;
+}
+.edit-delete-btn > button {
+  cursor: pointer;
+}
+
+.new-item-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  transform: translateY(-120%);
 }
