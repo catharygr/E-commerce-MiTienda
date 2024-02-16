@@ -12,17 +12,10 @@ export default function useProduct() {
 
   const deleteProduct = (id) => {
     console.log("Deleting product", id);
-    const filteredProducts = products.filter((product) => product.id !== id);
-    setProducts(filteredProducts);
   };
 
   const addProduct = () => {
     console.log("Adding product");
-    setForm({
-      price: "",
-      title: "",
-      description: "",
-    });
   };
 
   const editProduct = (id) => {
