@@ -62,26 +62,28 @@ https://qualentum-ecommerce-catary.netlify.app
 -He utilizado UserProvider para proporcionar un contexto de usuario y RouterProvider para manejar el enrutamiento.
 
 ## createBrowserRouter()
--He definido las rutas de la aplicación, incluyendo la ruta raíz ("/"), "/product/:id", "/cart", y una ruta de comodín ("*") para rutas no definidas.
+-He definido las rutas de la aplicación, incluyendo la ruta raíz ("/"), "/product/:id", "/cart", y una ruta de comodín ("*") para ruta no definidas que en este caso renderizará un componente mostrando una página de error 404.
 
 ## Layout.jsx
 - Este componente renderiza 4 componentes: Header, Promotion, Footer y Outlet para el resto de rutas anidadas
 
 ## Header.jsx
-- He utilizado <Link></Link> para crear un enlace de navegación a la página de inicio y un formulario de búsqueda que actualiza los parámetros de búsqueda.
+- He utilizado <Link></Link> para crear un enlace de navegación a la página de inicio y carrito de compras. 
+- El formulario de búsqueda lo he modificado para que en lugar de usar state de React, utilice useSearchParams de react router dom.
 
 ## MainContent.jsx
-- Este componente muestra una lista de productos. He utilizado el hook useSearchParams para obtener el valor del parámetro de búsqueda "search" de la URL. Este valor se utiliza para filtrar los productos que se muestran, basándose en el título del producto. Los productos filtrados se mapean a componentes ProductCard y se renderizan.
+- Este componente muestra una lista de productos. He utilizado el hook useSearchParams para obtener el valor del parámetro de búsqueda "search" de la URL. Este valor se utiliza para filtrar los productos que se muestran, basándose en el título del producto. 
+- Los productos filtrados se mapean a componentes ProductCard y se renderizan.
 
 ## LoginForm.jsx
-- He utilizado el hook useNavigate para redirigir al usuario a la página de inicio cuando cierra sesión, y a la última página visitada cuando inicia sesión.
+- He utilizado el hook useNavigate para redirigir al usuario a la página de inicio cuando cierra sesión, o a la última página visitada cuando inicia sesión.
 - Y useLocation para obtener la última ruta visitada por el usuario antes de iniciar sesión. Cuando el usuario inicia sesión, se le redirige a esta ruta.
 
 ## Promotion.jsx
-- He utilizado useLocation para obtener la ruta actual en la que se encuentra el usuario. La ruta se extrae de location.pathname y se divide para obtener la parte relevante de la ruta.
+- He utilizado useLocation para obtener la ruta actual en la que se encuentra el usuario. La ruta se extrae de location.pathname y se divide para obtener la parte relevante de la ruta. A base de esta información y si el usuaeio es logueado o no imprime diferente mensajes.
 
 ## ProductDetails.jsx
-- He  utilizado useParams para obtener el id del producto de la ruta y que muestre los detalles del producto. Le he proporcionado un botón para agregar el producto al carrito de compras.
+- He utilizado useParams para obtener el id del producto de la ruta y que muestre los detalles del producto. Le he proporcionado un botón para agregar el producto al carrito de compras y otro para volver al listado.
 
 ## ShoppingCart.jsx
 - He desarrollado una función handleCheckout() que se activa cuando el usuario decide finalizar la compra y vacíar el carrito de compras.
