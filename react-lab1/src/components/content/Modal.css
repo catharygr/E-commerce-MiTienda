@@ -7,9 +7,9 @@
   inset: 0;
 }
 .edit-modal h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 900;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 .edit-modal-content {
   position: relative;
