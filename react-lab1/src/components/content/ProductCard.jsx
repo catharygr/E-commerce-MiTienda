@@ -5,7 +5,12 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Edit2, Trash2 } from "react-feather";
 
-export default function ProductCard({ product, setIsModalOpen }) {
+export default function ProductCard({
+  product,
+  deleteProduct,
+  addProduct,
+  editProduct,
+}) {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -23,17 +28,17 @@ export default function ProductCard({ product, setIsModalOpen }) {
 
   const handleNewProduct = (e) => {
     e.stopPropagation();
-    setIsModalOpen(true);
+    addProduct();
   };
 
   const handleEditProduct = (e) => {
     e.stopPropagation();
-    setIsModalOpen(true);
+    editProduct(product.id);
   };
 
   const handleDeleteProduct = (e) => {
     e.stopPropagation();
-    console.log("Deleting product");
+    deleteProduct(product.id);
   };
 
   return (

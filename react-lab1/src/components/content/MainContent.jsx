@@ -3,13 +3,20 @@ import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import data from "../../assets/data.json";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
 import Modal from "./Modal";
+import useProduct from "../../custom-hooks/useProduct";
 
 export default function MainContent() {
+  const {
+    form,
+    isModalOpen,
+    setIsModalOpen,
+    deleteProduct,
+    addProduct,
+    editProduct,
+  } = useProduct();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function filterProducts() {
     if (!search) {
@@ -22,16 +29,25 @@ export default function MainContent() {
   }
   const mapeo = filterProducts().map((product) => (
     <ProductCard
-      setIsModalOpen={setIsModalOpen}
       key={product.id}
+      setIsModalOpen={setIsModalOpen}
       product={product}
+      deleteProduct={deleteProduct}
+      addProduct={addProduct}
+      editProduct={editProduct}
+      form={form}
     />
   ));
 
   return (
     <>
       <main className="main-container">{mapeo}</main>;
-      {isModalOpen && <Modal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && (
+        <Modal
+          form={form}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </>
   );
 }

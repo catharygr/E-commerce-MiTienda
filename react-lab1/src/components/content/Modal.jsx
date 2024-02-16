@@ -2,7 +2,7 @@
 import "./Modal.css";
 import { XCircle } from "react-feather";
 
-export default function Modal({ setIsModalOpen }) {
+export default function Modal({ setIsModalOpen, form }) {
   return (
     <div className="edit-modal">
       <div className="edit-modal-content">
@@ -13,7 +13,7 @@ export default function Modal({ setIsModalOpen }) {
           <XCircle />
         </button>
         <h2>Modal abierto</h2>
-        <p>aqui va algo</p>
+        <p>{form.title}</p>
       </div>
     </div>
   );
