@@ -32,8 +32,10 @@ export default function useProduct() {
   return {
     products,
     form,
+    isModalOpen,
     deleteProduct,
     addProduct,
     editProduct,
+    setIsModalOpen,
   };
 }
