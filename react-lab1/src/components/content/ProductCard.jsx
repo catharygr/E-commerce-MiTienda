@@ -3,6 +3,7 @@ import "./ProductCard.css";
 import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Edit2, Trash2 } from "react-feather";
 
 export default function ProductCard({ product }) {
   const { user, setUser } = useContext(UserContext);
@@ -44,6 +45,15 @@ export default function ProductCard({ product }) {
           Agregar carrito
         </button>
       )}
+      <div className="edit-delete-btn">
+        <button className="edit-btn">
+          <Edit2 />
+        </button>
+        <button className="delete-btn">
+          <Trash2 />
+        </button>
+      </div>
+      <button className="new-item-btn">Add new Product</button>
     </div>
   );
 }
