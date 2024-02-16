@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Edit2, Trash2 } from "react-feather";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, setIsModalOpen }) {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -19,6 +19,20 @@ export default function ProductCard({ product }) {
 
   const handleCardClick = () => {
     navigate(`/product/${product.id}`);
+  };
+
+  const handleNewProduct = (e) => {
+    e.stopPropagation();
+    setIsModalOpen(true);
+  };
+
+  const handleEditProduct = (e) => {
+    e.stopPropagation();
+    setIsModalOpen(true);
+  };
+
+  const handleDeleteProduct = (e) => {
+    e.stopPropagation();
   };
 
   return (
@@ -46,14 +60,19 @@ export default function ProductCard({ product }) {
         </button>
       )}
       <div className="edit-delete-btn">
-        <button>
+        <button onClick={handleEditProduct}>
           <Edit2 />
         </button>
-        <button>
+        <button onClick={handleDeleteProduct}>
           <Trash2 color={"red"} />
         </button>
       </div>
-      <button className="new-item-btn">Add new Product</button>
+      <button
+        onClick={handleNewProduct}
+        className="new-item-btn"
+      >
+        Add new Product
+      </button>
     </div>
   );
 }

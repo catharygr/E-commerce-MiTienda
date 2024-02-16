@@ -9,7 +9,7 @@ import Modal from "./Modal";
 export default function MainContent() {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function filterProducts() {
     if (!search) {
