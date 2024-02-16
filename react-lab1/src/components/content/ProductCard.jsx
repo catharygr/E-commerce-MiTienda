@@ -33,6 +33,7 @@ export default function ProductCard({ product, setIsModalOpen }) {
 
   const handleDeleteProduct = (e) => {
     e.stopPropagation();
+    console.log("Deleting product");
   };
 
   return (

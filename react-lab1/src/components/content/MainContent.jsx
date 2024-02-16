@@ -22,6 +22,7 @@ export default function MainContent() {
   }
   const mapeo = filterProducts().map((product) => (
     <ProductCard
+      setIsModalOpen={setIsModalOpen}
       key={product.id}
       product={product}
     />
