@@ -13,10 +13,12 @@ export default function useProduct() {
 
   const deleteProduct = (id) => {
     console.log("Deleting product", id);
+    const newProducts = products.filter((product) => product.id !== id);
+    setProducts(newProducts);
   };
 
   const addProduct = () => {
-    console.log("Adding product");
+    setIsModalOpen(true);
   };
 
   const editProduct = (id) => {
