@@ -4,9 +4,10 @@ import { XCircle } from "react-feather";
 
 export default function Modal({ setIsModalOpen, form, setForm }) {
   const handleChanges = (e) => {
+    const { name, value } = e.target;
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
   return (

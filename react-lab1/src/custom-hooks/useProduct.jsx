@@ -33,6 +33,7 @@ export default function useProduct() {
     products,
     form,
     isModalOpen,
+    setForm,
     deleteProduct,
     addProduct,
     editProduct,
