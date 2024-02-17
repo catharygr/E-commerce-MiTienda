@@ -1,0 +1,78 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-basis: 200px;
+  flex-grow: 1;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+}
+
+.card-img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.card-description {
+  font-size: 0.7rem;
+}
+
+.card-price {
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: rgb(64, 129, 254);
+}
+
+.card-btn {
+  padding: 0.5rem;
+  background-color: rgb(64, 129, 254);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+.edit-delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  cursor: pointer;
+}
+.edit-delete-btn > button {
+  cursor: pointer;
+}
+
+.new-item-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  cursor: pointer;
+  transform: translateY(-120%);
+}
