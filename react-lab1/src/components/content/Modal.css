@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
+  position: fixed;
   inset: 0;
 }
 .edit-modal-content h2 {

@@ -12,7 +12,6 @@ export default function useProduct() {
   });
 
   const deleteProduct = (id) => {
-    console.log("Deleting product", id);
     const newProducts = products.filter((product) => product.id !== id);
     setProducts(newProducts);
   };
