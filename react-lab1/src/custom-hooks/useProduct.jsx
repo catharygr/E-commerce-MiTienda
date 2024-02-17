@@ -26,7 +26,6 @@ export default function useProduct() {
   };
 
   const editProduct = (id) => {
-    console.log("Editing product");
     const filteredProduct = products.filter((product) => product.id === id);
     setForm({
       price: filteredProduct[0].price,
