@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./Modal.css";
 import { XCircle } from "react-feather";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Modal({
   setIsModalOpen,
@@ -14,11 +15,11 @@ export default function Modal({
     if (modalType === "new") {
       setProducts((prevProducts) => {
         const newProduct = {
-          id: prevProducts.length + 1,
+          id: uuidv4(),
           title: form.title,
           price: form.price,
           description: form.description,
-          image: "https://via.placeholder.com/150",
+          image: "https://via.placeholder.com/150/92c952",
         };
         return [...prevProducts, newProduct];
       });
@@ -68,7 +69,6 @@ export default function Modal({
             name="title"
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
-            placeholder="Title"
           />
           <label htmlFor="price">Price</label>
           <input
@@ -77,7 +77,6 @@ export default function Modal({
             name="price"
             value={form.price}
             onChange={(e) => setForm({ ...form, price: e.target.value })}
-            placeholder="Price"
           />
           <label htmlFor="description">Description</label>
           <textarea
@@ -86,7 +85,6 @@ export default function Modal({
             name="description"
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
-            placeholder="Description"
           />
           <button type="submit">Guardar</button>
         </form>

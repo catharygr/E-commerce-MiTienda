@@ -19,6 +19,11 @@ export default function useProduct() {
 
   const addProduct = () => {
     setIsModalOpen(true);
+    setForm({
+      price: "",
+      title: "",
+      description: "",
+    });
   };
 
   const editProduct = (id) => {
