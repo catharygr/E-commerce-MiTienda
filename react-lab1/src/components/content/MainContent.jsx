@@ -4,8 +4,11 @@ import "./MainContent.css";
 import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
 import useProduct from "../../custom-hooks/useProduct";
+import { UserContext } from "../../contextos/UserContext";
+import { useContext } from "react";
 
 export default function MainContent() {
+  const { user } = useContext(UserContext);
   const {
     form,
     isModalOpen,
@@ -47,7 +50,7 @@ export default function MainContent() {
   return (
     <>
       <main className="main-container">{mapeo}</main>;
-      {isModalOpen && (
+      {user.role === "admin" && isModalOpen && (
         <Modal
           form={form}
           setForm={setForm}

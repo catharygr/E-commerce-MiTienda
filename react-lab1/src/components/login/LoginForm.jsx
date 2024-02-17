@@ -18,6 +18,7 @@ export default function LoginForm() {
       setUser({
         ...user,
         isLogged: false,
+        role: "user",
       });
       navigate("/");
     } else if (!user.isLogged) {

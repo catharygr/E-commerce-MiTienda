@@ -68,20 +68,24 @@ export default function ProductCard({
           Agregar carrito
         </button>
       )}
-      <div className="edit-delete-btn">
-        <button onClick={handleEditProduct}>
-          <Edit2 />
+      {user.role === "admin" && (
+        <div className="edit-delete-btn">
+          <button onClick={handleEditProduct}>
+            <Edit2 />
+          </button>
+          <button onClick={handleDeleteProduct}>
+            <Trash2 color={"red"} />
+          </button>
+        </div>
+      )}
+      {user.role === "admin" && (
+        <button
+          onClick={handleNewProduct}
+          className="new-item-btn"
+        >
+          Add new Product
         </button>
-        <button onClick={handleDeleteProduct}>
-          <Trash2 color={"red"} />
-        </button>
-      </div>
-      <button
-        onClick={handleNewProduct}
-        className="new-item-btn"
-      >
-        Add new Product
-      </button>
+      )}
     </div>
   );
 }
