@@ -25,10 +25,16 @@ export default function LoginForm() {
         alert("Por favor, rellena todos los campos");
         return;
       }
+
+      let role = "user";
+      if (form.email.includes("@admin")) {
+        role = "admin";
+      }
       setUser({
         ...user,
         ...form,
         isLogged: true,
+        role,
       });
       reset();
       navigate(location.state?.pathname);
