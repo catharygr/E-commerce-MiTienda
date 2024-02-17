@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function useProduct() {
   const [products, setProducts] = useState(data);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
     price: "Caty",
     title: "",
@@ -33,10 +34,12 @@ export default function useProduct() {
     products,
     form,
     isModalOpen,
+    modalType,
     setForm,
     deleteProduct,
     addProduct,
     editProduct,
     setIsModalOpen,
+    setModalType,
   };
 }

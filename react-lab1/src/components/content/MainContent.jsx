@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import ProductCard from "./ProductCard";
 import "./MainContent.css";
-import data from "../../assets/data.json";
 import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
 import useProduct from "../../custom-hooks/useProduct";
@@ -10,7 +9,10 @@ export default function MainContent() {
   const {
     form,
     isModalOpen,
+    products,
+    modalType,
     setIsModalOpen,
+    setModalType,
     deleteProduct,
     addProduct,
     editProduct,
@@ -20,9 +22,9 @@ export default function MainContent() {
 
   function filterProducts() {
     if (!search) {
-      return data;
+      return products;
     } else {
-      return data.filter((product) =>
+      return products.filter((product) =>
         product.title.toLowerCase().includes(search.toLowerCase())
       );
     }
@@ -36,6 +38,7 @@ export default function MainContent() {
       addProduct={addProduct}
       editProduct={editProduct}
       form={form}
+      setModalType={setModalType}
     />
   ));
 
@@ -45,6 +48,7 @@ export default function MainContent() {
       {isModalOpen && (
         <Modal
           form={form}
+          modalType={modalType}
           setIsModalOpen={setIsModalOpen}
         />
       )}

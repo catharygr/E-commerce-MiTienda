@@ -2,13 +2,10 @@
 import "./Modal.css";
 import { XCircle } from "react-feather";
 
-export default function Modal({ setIsModalOpen, form, setForm }) {
-  const handleChanges = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]: value,
-    });
+export default function Modal({ setIsModalOpen, form, setForm, modalType }) {
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    console.log("Formulario enviado");
   };
   return (
     <div className="edit-modal">
@@ -19,15 +16,22 @@ export default function Modal({ setIsModalOpen, form, setForm }) {
         >
           <XCircle />
         </button>
-        <h2>Modificar Producto</h2>
-        <form className="form-modal">
+        {modalType === "new" ? (
+          <h2>Nuevo Producto</h2>
+        ) : (
+          <h2>Modificar Producto</h2>
+        )}
+        <form
+          onSubmit={handleSubmitForm}
+          className="form-modal-container"
+        >
           <label htmlFor="title">Title</label>
           <input
             type="text"
             id="title"
             name="title"
             value={form.title}
-            onChange={handleChanges}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
             placeholder="Title"
           />
           <label htmlFor="price">Price</label>
@@ -36,16 +40,16 @@ export default function Modal({ setIsModalOpen, form, setForm }) {
             id="price"
             name="price"
             value={form.price}
-            onChange={handleChanges}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
             placeholder="Price"
           />
           <label htmlFor="description">Description</label>
-          <input
+          <textarea
             type="text"
             id="description"
             name="description"
             value={form.description}
-            onChange={handleChanges}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
             placeholder="Description"
           />
           <button type="submit">Guardar</button>

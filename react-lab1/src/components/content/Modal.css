@@ -26,14 +26,16 @@
   cursor: pointer;
 }
 
-.form-modal {
+.form-modal-container {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  min-width:;
+
   gap: 0.5rem;
 }
 
-.form-modal input {
+.form-modal-container input,
+textarea {
   width: 100%;
   padding: 1rem;
   margin: 0.1rem 0;
@@ -42,7 +44,7 @@
   border-radius: 4px;
 }
 
-.form-modal button {
+.form-modal-container button {
   background-color: rgb(64, 129, 254);
   color: white;
   padding: 1rem 1.5rem;
