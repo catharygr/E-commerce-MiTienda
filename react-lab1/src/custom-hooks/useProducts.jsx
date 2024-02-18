@@ -14,7 +14,7 @@ export default function useProducts() {
   const [isLoading, isSetLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_URL = "http://localhost:3000/productssss";
+  const API_URL = "http://localhost:3000/products";
 
   useEffect(() => {
     isSetLoading(true);
@@ -31,7 +31,7 @@ export default function useProducts() {
       } finally {
         setTimeout(() => {
           isSetLoading(false);
-        }, 2000);
+        }, 1000);
       }
     };
     getProducts();
