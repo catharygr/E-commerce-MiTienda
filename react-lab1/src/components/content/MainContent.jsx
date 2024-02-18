@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
-import useProduct from "../../custom-hooks/useProduct";
+import useProduct from "../../custom-hooks/useProducts";
 import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 

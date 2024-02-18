@@ -5,7 +5,7 @@ const formReducer = (state, action) => {
     case "SET_NAME":
       return { ...state, name: action.payload };
     case "SET_EMAIL":
-      return { ...state, email: action.payload.trim() };
+      return { ...state, email: action.payload.toLowerCase() };
     case "RESET":
       return { name: "", email: "" };
     default:

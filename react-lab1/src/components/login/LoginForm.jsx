@@ -27,7 +27,7 @@ export default function LoginForm() {
         return;
       }
 
-      const userEmail = form.email.toLowerCase().trim();
+      const userEmail = form.email.trim();
       const role = userEmail.includes("@admin") ? "admin" : "user";
 
       setUser({
