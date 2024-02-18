@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import ProductCard from "./ProductCard";
 import "./MainContent.css";
@@ -5,7 +6,8 @@ import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
 import useProducts from "../../custom-hooks/useProducts";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import Loader from "../loader/Loader";
 
 export default function MainContent() {
   const { user } = useContext(UserContext);
@@ -22,6 +24,9 @@ export default function MainContent() {
     addProduct,
     editProduct,
     handleSubmitForm,
+    isLoading,
+    error,
+    setError,
   } = useProducts();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
@@ -54,6 +59,17 @@ export default function MainContent() {
       setModalType={setModalType}
     />
   ));
+
+  useEffect(() => {
+    if (error) {
+      alert("Error loading products");
+      setError(null);
+    }
+  }, [error]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>

@@ -11,21 +11,31 @@ export default function useProducts() {
     title: "",
     description: "",
   });
+  const [isLoading, isSetLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const API_URL = "http://localhost:3000/products";
+  const API_URL = "http://localhost:3000/productssss";
 
   useEffect(() => {
+    isSetLoading(true);
+    const getProducts = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setProducts(response.data);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setError("No products");
+        } else {
+          setError("Error fetching products");
+        }
+      } finally {
+        setTimeout(() => {
+          isSetLoading(false);
+        }, 2000);
+      }
+    };
     getProducts();
   }, []);
-
-  const getProducts = async () => {
-    try {
-      const response = await axios.get(API_URL);
-      setProducts(response.data);
-    } catch (error) {
-      console.error("Error fetching products", error);
-    }
-  };
 
   // Función que se ejecuta en el formulario del modal - onSubmit
   const handleSubmitForm = async (e) => {
@@ -112,6 +122,9 @@ export default function useProducts() {
     form,
     isModalOpen,
     modalType,
+    isLoading,
+    error,
+    setError,
     setForm,
     deleteProduct,
     addProduct,
