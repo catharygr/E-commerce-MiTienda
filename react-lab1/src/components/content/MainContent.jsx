@@ -56,7 +56,7 @@ export default function MainContent() {
 
   return (
     <>
-      <main className="main-container">{mapeo}</main>;
+      <main className="main-container">{mapeo}</main>
       {user.role === "admin" && (
         <button
           onClick={handleNewProduct}
@@ -65,7 +65,6 @@ export default function MainContent() {
           Add new Product
         </button>
       )}
-      <button type="submit">Guardar</button>
       {user.role === "admin" && isModalOpen && (
         <Modal
           form={form}
