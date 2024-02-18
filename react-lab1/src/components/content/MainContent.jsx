@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
-import useProduct from "../../custom-hooks/useProducts";
+import useProducts from "../../custom-hooks/useProducts";
 import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 
@@ -21,7 +21,8 @@ export default function MainContent() {
     deleteProduct,
     addProduct,
     editProduct,
-  } = useProduct();
+    handleSubmitForm,
+  } = useProducts();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
 
@@ -72,6 +73,7 @@ export default function MainContent() {
           setProducts={setProducts}
           modalType={modalType}
           setIsModalOpen={setIsModalOpen}
+          handleSubmitForm={handleSubmitForm}
         />
       )}
     </>

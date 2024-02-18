@@ -1,8 +1,9 @@
-import data from "../assets/data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 
-export default function useProduct() {
-  const [products, setProducts] = useState(data);
+export default function useProducts() {
+  const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
@@ -11,9 +12,65 @@ export default function useProduct() {
     description: "",
   });
 
-  const deleteProduct = (id) => {
-    const newProducts = products.filter((product) => product.id !== id);
-    setProducts(newProducts);
+  const API_URL = "http://localhost:3000/products";
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(API_URL);
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching products", error);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await axios.delete(`${API_URL}/${id}`);
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting product", error);
+    }
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    if (modalType === "new") {
+      setProducts((prevProducts) => {
+        const newProduct = {
+          id: uuidv4(),
+          title: form.title,
+          price: form.price,
+          description: form.description,
+          image: "https://via.placeholder.com/150/92c952",
+        };
+        return [...prevProducts, newProduct];
+      });
+      setIsModalOpen(false);
+    }
+
+    if (modalType === "edit") {
+      setProducts((prevProducts) => {
+        const newProducts = prevProducts.map((product) => {
+          if (product.id === form.id) {
+            return {
+              ...product,
+              title: form.title,
+              price: form.price,
+              description: form.description,
+            };
+          }
+          return product;
+        });
+        return newProducts;
+      });
+      setIsModalOpen(false);
+    }
   };
 
   const addProduct = () => {
@@ -48,5 +105,6 @@ export default function useProduct() {
     setIsModalOpen,
     setModalType,
     setProducts,
+    handleSubmitForm,
   };
 }
