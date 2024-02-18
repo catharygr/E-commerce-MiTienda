@@ -27,17 +27,7 @@ export default function useProducts() {
     }
   };
 
-  const deleteProduct = async (id) => {
-    try {
-      await axios.delete(`${API_URL}/${id}`);
-      setProducts((prevProducts) =>
-        prevProducts.filter((product) => product.id !== id)
-      );
-    } catch (error) {
-      console.error("Error deleting product", error);
-    }
-  };
-
+  // Función que se ejecuta en el formulario del modal - onSubmit
   const handleSubmitForm = async (e) => {
     e.preventDefault();
 
@@ -85,6 +75,7 @@ export default function useProducts() {
     }
   };
 
+  // Tres funciones que se ejecuatn en los botones de agregar, editar y eliminar del ProductCard y abre el modal
   const addProduct = () => {
     setIsModalOpen(true);
     setForm({
@@ -103,6 +94,17 @@ export default function useProducts() {
       id: filteredProduct[0].id,
     });
     setIsModalOpen(true);
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await axios.delete(`${API_URL}/${id}`);
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting product", error);
+    }
   };
 
   return {
