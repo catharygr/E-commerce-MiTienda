@@ -65,14 +65,3 @@
 .edit-delete-btn > button {
   cursor: pointer;
 }
-
-.new-item-btn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: green;
-  color: white;
-  padding: 0.5rem;
-  cursor: pointer;
-  transform: translateY(-120%);
-}

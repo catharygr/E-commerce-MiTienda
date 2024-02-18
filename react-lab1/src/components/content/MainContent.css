@@ -4,3 +4,14 @@
   gap: 1.5rem;
   margin: 0.5rem;
 }
+
+.new-item-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+}

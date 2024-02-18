@@ -34,6 +34,13 @@ export default function MainContent() {
       );
     }
   }
+
+  const handleNewProduct = (e) => {
+    e.stopPropagation();
+    addProduct();
+    setModalType("new");
+  };
+
   const mapeo = filterProducts().map((product) => (
     <ProductCard
       key={product.id}
@@ -50,6 +57,15 @@ export default function MainContent() {
   return (
     <>
       <main className="main-container">{mapeo}</main>;
+      {user.role === "admin" && (
+        <button
+          onClick={handleNewProduct}
+          className="new-item-btn"
+        >
+          Add new Product
+        </button>
+      )}
+      <button type="submit">Guardar</button>
       {user.role === "admin" && isModalOpen && (
         <Modal
           form={form}
