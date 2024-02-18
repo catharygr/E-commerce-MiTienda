@@ -38,38 +38,50 @@ export default function useProducts() {
     }
   };
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
+
     if (modalType === "new") {
-      setProducts((prevProducts) => {
-        const newProduct = {
-          id: uuidv4(),
-          title: form.title,
-          price: form.price,
-          description: form.description,
-          image: "https://via.placeholder.com/150/92c952",
-        };
-        return [...prevProducts, newProduct];
-      });
-      setIsModalOpen(false);
+      const newProduct = {
+        id: uuidv4(),
+        title: form.title,
+        price: form.price,
+        description: form.description,
+        image: "https://via.placeholder.com/150/92c952",
+      };
+
+      try {
+        await axios.post(API_URL, newProduct);
+        setProducts((prevProducts) => [...prevProducts, newProduct]);
+        setIsModalOpen(false);
+      } catch (error) {
+        console.error("Error creating product", error);
+      }
     }
 
     if (modalType === "edit") {
-      setProducts((prevProducts) => {
-        const newProducts = prevProducts.map((product) => {
-          if (product.id === form.id) {
-            return {
-              ...product,
-              title: form.title,
-              price: form.price,
-              description: form.description,
-            };
-          }
-          return product;
+      const findProduct = products.find((product) => product.id === form.id);
+      const updatedProduct = {
+        ...findProduct,
+        title: form.title,
+        price: form.price,
+        description: form.description,
+      };
+      try {
+        await axios.put(`${API_URL}/${form.id}`, updatedProduct);
+        setProducts((prevProducts) => {
+          const newProducts = prevProducts.map((product) => {
+            if (product.id === form.id) {
+              return updatedProduct;
+            }
+            return product;
+          });
+          return newProducts;
         });
-        return newProducts;
-      });
-      setIsModalOpen(false);
+        setIsModalOpen(false);
+      } catch (error) {
+        console.error("Error updating product", error);
+      }
     }
   };
 
