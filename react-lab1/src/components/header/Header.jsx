@@ -22,7 +22,7 @@ export default function Header() {
       className={`header-container ${user.isDarkMode ? "dark-mode" : "light-mode"}`}
     >
       <Link to="/">
-        <h1>MiTienda</h1>
+        <h1 className={user.isLogged ? "logged-in-title" : ""}>MiTienda</h1>
       </Link>
       <HeaderMenu />
       <form onSubmit={handleSubmit}>

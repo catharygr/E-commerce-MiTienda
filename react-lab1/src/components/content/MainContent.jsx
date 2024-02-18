@@ -63,7 +63,7 @@ export default function MainContent() {
           onClick={handleNewProduct}
           className="new-item-btn"
         >
-          Add new Product
+          Add New Product
         </button>
       )}
       {user.role === "admin" && isModalOpen && (

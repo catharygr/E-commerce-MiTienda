@@ -25,6 +25,10 @@
   cursor: pointer;
 }
 
+.logged-in-title {
+  color: red;
+}
+
 .search-input {
   background-color: white;
   padding: 0.3rem 0.8rem;
