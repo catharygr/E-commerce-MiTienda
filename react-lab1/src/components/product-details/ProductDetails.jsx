@@ -12,9 +12,9 @@ export default function ProductDetails() {
   const [isLoading, isSetLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  let { title, price, description, image, category } = findProduct;
-
   const findProduct = products.find((product) => product.id === Number(id));
+  let title, price, description, image, category;
+
   if (findProduct) {
     ({ title, price, description, image, category } = findProduct);
   }
