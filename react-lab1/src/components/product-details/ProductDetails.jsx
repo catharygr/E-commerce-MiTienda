@@ -12,7 +12,13 @@ export default function ProductDetails() {
   const [isLoading, isSetLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(findProduct);
+  let title, price, description, image, category;
+
+  const findProduct = products.find((product) => product.id === Number(id));
+  if (findProduct) {
+    ({ title, price, description, image, category } = findProduct);
+  }
+
   const hadleAddToCart = () => {
     if (findProduct) {
       setUser({
@@ -30,15 +36,6 @@ export default function ProductDetails() {
       try {
         const response = await axios.get(API_URL);
         setProducts(response.data);
-
-        const findProduct = products.find(
-          (product) => product.id === Number(id)
-        );
-        let title, price, description, image, category;
-
-        if (findProduct) {
-          ({ title, price, description, image, category } = findProduct);
-        }
       } catch (error) {
         if (error.response && error.response.status === 404) {
           setError("No products");
