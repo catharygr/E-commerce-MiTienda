@@ -1,8 +1,5 @@
-# Qualentum React: Lab3, Lab2, Lab1
+# Qualentum React: Lab4, Lab3, Lab2, Lab1
 
-### He conectado mi repositorio con Netlify para que lo puedas ver el resultado del problema sin que tengas que bajar el repositorio.
-https://qualentum-ecommerce-catary.netlify.app
- 
 ## Flujo de la App
 - Basándome en la estructura de la aplicación, he situado el estado en el componente App.jsx. Este estado almacena el valor que el usuario busca a través del componente Header y posteriormente se lo pasa al componente MainContent.
 
@@ -17,7 +14,7 @@ https://qualentum-ecommerce-catary.netlify.app
 - En MainContent he importado la data y utilizando el término de busca para filtrar los productos
 - Cada tarjeta de producto es un componente ProductCard que muestra los detalles de un producto individual.
 
-
+---------------------------------------------------------------------------------------------------------------------
 # Lab2
 
 ## Contexto de usuario
@@ -53,7 +50,7 @@ https://qualentum-ecommerce-catary.netlify.app
 - Al final se retorna las tres funciones y el estado form.
 - Este customs hooks se importa en el formulario para loguear donde se consume sus funciones y estado para actualizar el contexto global del usuario y así quedará más limpio.
 
-
+------------------------------------------------------------------------------------------------------------------------
 # Lab 3
 
 ## Configuracion del Router con React-Router-Dom
@@ -90,6 +87,38 @@ https://qualentum-ecommerce-catary.netlify.app
 
 ## ProtectedRouter.jsx
 -  Es el componente que protege las rutas que requieren autenticación y utiliza useLocation para guardar la ubicación actual antes de redirigir al usuario.
+
+---------------------------------------------------------------------------------------------------------------------
+# Lab4
+
+## Conexiones a API
+
+## UserContext.jsx
+- En el contexto de usuario he añadido una nueva propiedad "role". En el componente LoginForm a la hora de registarse el usuario verficamos si el email incluye (includes()) " @admin". En tal caso le asignamos role "@admin" y si no role "user".
+- Esta propiedad role lo he utilizado para renderizar condicionalmete los tres botones: editar, eliminar y añadir un nuevo producto. Estos botones lo he ubicado en los Componentes ProducCard y el de nuevo producto en MainContent. 
+- Toda la lógica de la funcionalidad de los botones la he desarrolado en el costum hook useProducts.
+
+## Modal.jsx 
+- He desarrollado sólo un modal que su funcionalidad la modifico con state modalType, todo los demás funcionalidad es†á desarrollada en useProducts.jsx 
+
+## Custom hook useProducts.jsx
+- En el primer he desarrollado toda la funcionalidad requerida utilizando datos locales
+- Posteriormente he instalado JSON-Server y he configurado dos puntos de determinación products y users y he instalado la libreria Axios que la he utilizado para conectar las operaciones CRUD al servidor.
+- He utilizado useEffect donde me conectado utilizando axios.get() a mi API y he utilizado los datos que me ha devuelto con la promesa en vez de los datos locales.
+- Con el métodos axios.post actualizo API con el nuevo producto como mi estado local de producto. 
+- Con el método axios.put editos los productos y los guardo.
+- Todo esto dentro de una función async/await con try/catch para gestionar los errores.
+- Los dos states isLoading y error lo he utilizado para gestionar los tiempos de cargas y errores.
+
+## Loader.jsx
+- Este componente lo he creado para utilizarlo condicionalmente mientras se cargan los datos desde la API.
+
+## ShoppingCard.jsx
+- He utilizado useEffect muy parecido al de el custom hook useProducts para descargar productos del API fintrando los que estaban en el carrito para presentarlo actualizado en la pantalla.
+
+
+
+
 
 Un saludo.
 
