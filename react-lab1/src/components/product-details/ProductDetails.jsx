@@ -1,15 +1,18 @@
 import "./ProductDetails.css";
 import { Link, useParams } from "react-router-dom";
-import data from "../../assets/data.json";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import Loader from "../loader/Loader";
 
 export default function ProductDetails() {
   const { user, setUser } = useContext(UserContext);
   const { id } = useParams();
+  const [isLoading, isSetLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([]);
 
-  const findProduct = data.find((product) => product.id === Number(id));
-  const { title, price, description, image, category } = findProduct;
+  const findProduct = products?.find((product) => product.id === Number(id));
 
   const hadleAddToCart = () => {
     setUser({
@@ -17,6 +20,46 @@ export default function ProductDetails() {
       shoppingCartItems: [...user.shoppingCartItems, findProduct.id],
     });
   };
+
+  const API_URL = "http://localhost:3000/products";
+
+  useEffect(() => {
+    isSetLoading(true);
+    const getProducts = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setProducts(response.data);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          setError("No products");
+        } else {
+          setError("Error fetching products");
+        }
+      } finally {
+        setTimeout(() => {
+          isSetLoading(false);
+        }, 1000);
+      }
+    };
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    if (error) {
+      alert("Error loading products");
+      setError(null);
+    }
+  }, [error]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!findProduct) {
+    return <div>Producto no encontrado</div>;
+  }
+
+  const { title, price, description, image, category } = findProduct;
 
   return (
     <main className="product-details-container">
