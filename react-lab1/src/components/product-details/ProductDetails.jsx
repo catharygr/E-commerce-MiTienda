@@ -1,66 +1,22 @@
 import "./ProductDetails.css";
 import { Link, useParams } from "react-router-dom";
+import data from "../../assets/data.json";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext, useState, useEffect } from "react";
-import axios from "axios";
-import Loader from "../loader/Loader";
+import { useContext } from "react";
 
 export default function ProductDetails() {
   const { user, setUser } = useContext(UserContext);
   const { id } = useParams();
-  const [products, setProducts] = useState([]);
-  const [isLoading, isSetLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  let title, price, description, image, category;
-
-  const findProduct = products.find((product) => product.id === Number(id));
-  if (findProduct) {
-    ({ title, price, description, image, category } = findProduct);
-  }
+  const findProduct = data.find((product) => product.id === Number(id));
+  const { title, price, description, image, category } = findProduct;
 
   const hadleAddToCart = () => {
-    if (findProduct) {
-      setUser({
-        ...user,
-        shoppingCartItems: [...user.shoppingCartItems, findProduct.id],
-      });
-    }
+    setUser({
+      ...user,
+      shoppingCartItems: [...user.shoppingCartItems, findProduct.id],
+    });
   };
-
-  const API_URL = "http://localhost:3000/products";
-
-  useEffect(() => {
-    isSetLoading(true);
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        setProducts(response.data);
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          setError("No products");
-        } else {
-          setError("Error fetching products");
-        }
-      } finally {
-        setTimeout(() => {
-          isSetLoading(false);
-        }, 1000);
-      }
-    };
-    getProducts();
-  }, []);
-
-  useEffect(() => {
-    if (error) {
-      alert("Error loading products");
-      setError(null);
-    }
-  }, [error]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <main className="product-details-container">
