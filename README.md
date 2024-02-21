@@ -102,7 +102,7 @@
 - He desarrollado sólo un modal que su funcionalidad la modifico con state modalType, todo los demás funcionalidad está desarrollada en useProducts.jsx 
 
 ## Custom hook useProducts.jsx
-- En el primer he desarrollado toda la funcionalidad requerida utilizando datos locales
+- En el primer paso, he desarrollado toda la funcionalidad requerida utilizando datos locales
 - Posteriormente he instalado JSON-Server y he configurado dos puntos de determinación products y users y he instalado la libreria Axios que la he utilizado para conectar las operaciones CRUD al servidor.
 - He utilizado useEffect donde me conectado utilizando axios.get() a mi API y he utilizado los datos que me ha devuelto con la promesa en vez de los datos locales.
 - Con el métodos axios.post actualizo API con el nuevo producto como mi estado local de producto. 
