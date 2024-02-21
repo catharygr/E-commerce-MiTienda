@@ -113,12 +113,8 @@
 ## Loader.jsx
 - Este componente lo he creado para utilizarlo condicionalmente mientras se cargan los datos desde la API.
 
-## ShoppingCard.jsx
+## ShoppingCard.jsx y ProductDetails.jsx
 - He utilizado useEffect muy parecido al de el custom hook useProducts para descargar productos del API fintrando los que estaban en el carrito para presentarlo actualizado en la pantalla.
-
-
-
-
 
 Un saludo.
 

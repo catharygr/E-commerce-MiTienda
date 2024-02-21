@@ -52,7 +52,9 @@ export default function ProductDetails() {
   if (isLoading) {
     return <Loader />;
   }
-  const findProduct = products?.find((product) => product.id === Number(id));
+  const findProduct = products?.find(
+    (product) => product.id.toString() === id.toString()
+  );
   const { title, price, description, image, category } = findProduct;
 
   return (
