@@ -99,7 +99,7 @@
 - Toda la lógica de la funcionalidad de los botones la he desarrolado en el costum hook useProducts.
 
 ## Modal.jsx 
-- He desarrollado sólo un modal que su funcionalidad la modifico con state modalType, todo los demás funcionalidad es†á desarrollada en useProducts.jsx 
+- He desarrollado sólo un modal que su funcionalidad la modifico con state modalType, todo los demás funcionalidad está desarrollada en useProducts.jsx 
 
 ## Custom hook useProducts.jsx
 - En el primer he desarrollado toda la funcionalidad requerida utilizando datos locales
