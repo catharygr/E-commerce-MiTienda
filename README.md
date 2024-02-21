@@ -104,9 +104,9 @@
 ## Custom hook useProducts.jsx
 - En el primer paso, he desarrollado toda la funcionalidad requerida utilizando datos locales
 - Posteriormente he instalado JSON-Server y he configurado dos puntos de determinación products y users y he instalado la libreria Axios que la he utilizado para conectar las operaciones CRUD al servidor.
-- He utilizado useEffect donde me conectado utilizando axios.get() a mi API y he utilizado los datos que me ha devuelto con la promesa en vez de los datos locales.
+- He utilizado useEffect donde me he conectado utilizando axios.get() a mi API y he utilizado los datos que me ha devuelto con la promesa en vez de los datos locales.
 - Con el métodos axios.post actualizo API con el nuevo producto como mi estado local de producto. 
-- Con el método axios.put editos los productos y los guardo.
+- Con el método axios.put edito los productos y los guardo.
 - Todo esto dentro de una función async/await con try/catch para gestionar los errores.
 - Los dos states isLoading y error lo he utilizado para gestionar los tiempos de cargas y errores.
 
@@ -114,7 +114,7 @@
 - Este componente lo he creado para utilizarlo condicionalmente mientras se cargan los datos desde la API.
 
 ## ShoppingCard.jsx y ProductDetails.jsx
-- He utilizado useEffect muy parecido al de el custom hook useProducts para descargar productos del API fintrando los que estaban en el carrito para presentarlo actualizado en la pantalla.
+- He utilizado useEffect muy parecido al de el custom hook useProducts para descargar productos del API filtrando los que estaban en el carrito para presentarlo actualizado en la pantalla.
 
 Un saludo.
 
