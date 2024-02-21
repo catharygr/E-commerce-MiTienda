@@ -95,7 +95,7 @@
 
 ## UserContext.jsx
 - En el contexto de usuario he añadido una nueva propiedad "role". En el componente LoginForm a la hora de registarse el usuario verficamos si el email incluye (includes()) " @admin". En tal caso le asignamos role "@admin" y si no role "user".
-- Esta propiedad role lo he utilizado para renderizar condicionalmete los tres botones: editar, eliminar y añadir un nuevo producto. Estos botones lo he ubicado en los Componentes ProducCard y el del nuevo producto en MainContent. 
+- Esta propiedad role la he utilizado para renderizar condicionalmente los tres botones: editar, eliminar y añadir un nuevo producto. Estos botones lo he ubicado en los Componentes ProducCard y el del nuevo producto en MainContent. 
 - Toda la lógica de la funcionalidad de los botones la he desarrolado en el costum hook useProducts.
 
 ## Modal.jsx 
