@@ -12,8 +12,6 @@ export default function ProductDetails() {
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
 
-  const findProduct = products?.find((product) => product.id === Number(id));
-
   const hadleAddToCart = () => {
     setUser({
       ...user,
@@ -54,11 +52,7 @@ export default function ProductDetails() {
   if (isLoading) {
     return <Loader />;
   }
-
-  if (!findProduct) {
-    return <div>Producto no encontrado</div>;
-  }
-
+  const findProduct = products?.find((product) => product.id === Number(id));
   const { title, price, description, image, category } = findProduct;
 
   return (
