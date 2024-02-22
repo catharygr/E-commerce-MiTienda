@@ -89,12 +89,12 @@ export default function useProducts() {
 
   // Tres funciones que se ejecuatn en los botones de agregar, editar y eliminar del ProductCard y abre el modal
   const addProduct = () => {
-    setIsModalOpen(true);
-    setForm({
-      price: "",
-      title: "",
-      description: "",
-    });
+    // setIsModalOpen(true);
+    // setForm({
+    //   price: "",
+    //   title: "",
+    //   description: "",
+    // });
   };
 
   const editProduct = (id) => {

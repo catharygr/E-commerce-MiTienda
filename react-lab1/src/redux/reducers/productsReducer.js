@@ -22,5 +22,4 @@ function productsReducer(state = initialState, action) {
 
 export default productsReducer;
 
-// Lo consume store por si misma y lo exporta para que lo consuma el componente
-export const getProducts = (state) => state.products.products;
+export const getAllProducts = (state) => state.products.products;
