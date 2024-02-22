@@ -54,7 +54,7 @@ export default function useProducts() {
       };
 
       try {
-        await axios.post(API_URL, newProduct);
+        // await axios.post(API_URL, newProduct);
         // setProducts((prevProducts) => [...prevProducts, newProduct]);
         dispatch(addProduct(newProduct));
         addProduct(newProduct);
