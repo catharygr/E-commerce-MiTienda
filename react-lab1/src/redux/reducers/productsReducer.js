@@ -26,4 +26,4 @@ function productsReducer(state = initialState, action) {
 
 export default productsReducer;
 
-export const getAllProducts = (state) => state.products.products;
+export const getAllProducts = (state) => state.products || [];
