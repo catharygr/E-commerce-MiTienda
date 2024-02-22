@@ -13,6 +13,10 @@ const initialState = {
 function productsReducer(state = initialState, action) {
   switch (action.type) {
     case PRODUCTS_ADD_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload],
+      };
     case PRODUCTS_DELETE_PRODUCT:
     case PRODUCTS_UPDATE_PRODUCT:
     default:

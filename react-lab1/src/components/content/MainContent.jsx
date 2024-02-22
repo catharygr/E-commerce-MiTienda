@@ -9,10 +9,9 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext, useEffect } from "react";
 import Loader from "../loader/Loader";
 import { getAllProducts } from "../../redux/reducers/productsReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function MainContent() {
-  const dispatch = useDispatch();
   const products = useSelector(getAllProducts);
 
   const { user } = useContext(UserContext);
@@ -46,7 +45,7 @@ export default function MainContent() {
     }
   }
 
-  const handleNewProduct = () => {
+  const handleNewProductModal = () => {
     setForm({
       title: "",
       price: "",
@@ -85,7 +84,7 @@ export default function MainContent() {
       <main className="main-container">{mapeo}</main>
       {user.role === "admin" && (
         <button
-          onClick={handleNewProduct}
+          onClick={handleNewProductModal}
           className="new-item-btn"
         >
           Add New Product

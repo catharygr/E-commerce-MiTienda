@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/actions/index.js";
 
 export default function useProducts() {
   const [products, setProducts] = useState([]);
@@ -13,6 +15,7 @@ export default function useProducts() {
   });
   const [isLoading, isSetLoading] = useState(false);
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
 
   const API_URL = "http://localhost:3000/products";
 
@@ -52,7 +55,9 @@ export default function useProducts() {
 
       try {
         await axios.post(API_URL, newProduct);
-        setProducts((prevProducts) => [...prevProducts, newProduct]);
+        // setProducts((prevProducts) => [...prevProducts, newProduct]);
+        dispatch(addProduct(newProduct));
+        addProduct(newProduct);
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error creating product", error);
@@ -88,14 +93,14 @@ export default function useProducts() {
   };
 
   // Tres funciones que se ejecuatn en los botones de agregar, editar y eliminar del ProductCard y abre el modal
-  const addProduct = () => {
-    // setIsModalOpen(true);
-    // setForm({
-    //   price: "",
-    //   title: "",
-    //   description: "",
-    // });
-  };
+  // const addProduct = () => {
+  //   // setIsModalOpen(true);
+  //   // setForm({
+  //   //   price: "",
+  //   //   title: "",
+  //   //   description: "",
+  //   // });
+  // };
 
   const editProduct = (id) => {
     const filteredProduct = products.filter((product) => product.id === id);
