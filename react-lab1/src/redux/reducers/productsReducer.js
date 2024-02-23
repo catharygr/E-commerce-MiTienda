@@ -21,6 +21,15 @@ function productsReducer(state = initialState, action) {
         },
       };
     case PRODUCTS_DELETE_PRODUCT:
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          products: state.products.products.filter(
+            (product) => product.id !== action.payload
+          ),
+        },
+      };
     case PRODUCTS_UPDATE_PRODUCT:
     default:
       return state;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../redux/actions/index.js";
+import { addProduct, removeProduct } from "../redux/actions/index.js";
 
 export default function useProducts() {
   const [products, setProducts] = useState([]);
@@ -115,10 +115,11 @@ export default function useProducts() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
-      setProducts((prevProducts) =>
-        prevProducts.filter((product) => product.id !== id)
-      );
+      // await axios.delete(`${API_URL}/${id}`);
+      dispatch(removeProduct(id));
+      // setProducts((prevProducts) =>
+      //   prevProducts.filter((product) => product.id !== id)
+      // );
     } catch (error) {
       console.error("Error deleting product", error);
     }
