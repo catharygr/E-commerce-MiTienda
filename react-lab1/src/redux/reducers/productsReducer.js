@@ -15,7 +15,10 @@ function productsReducer(state = initialState, action) {
     case PRODUCTS_ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, action.payload],
+        products: {
+          ...state.products,
+          products: [...state.products.products, action.payload],
+        },
       };
     case PRODUCTS_DELETE_PRODUCT:
     case PRODUCTS_UPDATE_PRODUCT:
