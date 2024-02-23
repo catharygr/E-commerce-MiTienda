@@ -62,6 +62,7 @@ export default function MainContent() {
       product={product}
       deleteProduct={deleteProduct}
       addProduct={addProduct}
+      openEditProductModal={openEditProductModal}
       form={form}
       setModalType={setModalType}
     />
