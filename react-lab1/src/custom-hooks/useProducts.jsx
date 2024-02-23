@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import axios from "axios";
+// import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   addProduct,
@@ -25,7 +25,7 @@ export default function useProducts() {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
-  const API_URL = "http://localhost:3000/products";
+  // const API_URL = "http://localhost:3000/products";
 
   // useEffect(() => {
   //   isSetLoading(true);
