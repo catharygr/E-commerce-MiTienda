@@ -2,10 +2,18 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addProduct, removeProduct } from "../redux/actions/index.js";
+import {
+  addProduct,
+  removeProduct,
+  updateProduct,
+} from "../redux/actions/index.js";
+import { useSelector } from "react-redux";
+import { getAllProducts } from "../redux/reducers/productsReducer.js";
 
 export default function useProducts() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector(getAllProducts);
+
+  // const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
@@ -19,26 +27,26 @@ export default function useProducts() {
 
   const API_URL = "http://localhost:3000/products";
 
-  useEffect(() => {
-    isSetLoading(true);
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        setProducts(response.data);
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          setError("No products");
-        } else {
-          setError("Error fetching products");
-        }
-      } finally {
-        setTimeout(() => {
-          isSetLoading(false);
-        }, 1000);
-      }
-    };
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   isSetLoading(true);
+  //   const getProducts = async () => {
+  //     try {
+  //       const response = await axios.get(API_URL);
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       if (error.response && error.response.status === 404) {
+  //         setError("No products");
+  //       } else {
+  //         setError("Error fetching products");
+  //       }
+  //     } finally {
+  //       setTimeout(() => {
+  //         isSetLoading(false);
+  //       }, 1000);
+  //     }
+  //   };
+  //   getProducts();
+  // }, []);
 
   // Función que se ejecuta en el formulario del modal - onSubmit
   const handleSubmitForm = async (e) => {
@@ -65,26 +73,27 @@ export default function useProducts() {
     }
 
     if (modalType === "edit") {
-      const findProduct = products.find(
+      const findProduct = products.products.find(
         (product) => product.id.toString() === form.id.toString()
       );
-      const updatedProduct = {
+      const editedProduct = {
         ...findProduct,
         title: form.title,
         price: form.price,
         description: form.description,
       };
       try {
-        await axios.put(`${API_URL}/${form.id}`, updatedProduct);
-        setProducts((prevProducts) => {
-          const newProducts = prevProducts.map((product) => {
-            if (product.id === form.id) {
-              return updatedProduct;
-            }
-            return product;
-          });
-          return newProducts;
-        });
+        // await axios.put(`${API_URL}/${form.id}`, updatedProduct);
+        // setProducts((prevProducts) => {
+        //   const newProducts = prevProducts.map((product) => {
+        //     if (product.id === form.id) {
+        //       return editedProduct;
+        //     }
+        //     return product;
+        //   });
+        //   return newProducts;
+        // });
+        dispatch(updateProduct(editedProduct));
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error updating product", error);
@@ -102,8 +111,10 @@ export default function useProducts() {
   //   // });
   // };
 
-  const editProduct = (id) => {
-    const filteredProduct = products.filter((product) => product.id === id);
+  const openEditProductModal = (id) => {
+    const filteredProduct = products.products.filter(
+      (product) => product.id.toString() === id.toString()
+    );
     setForm({
       price: filteredProduct[0].price,
       title: filteredProduct[0].title,
@@ -136,10 +147,10 @@ export default function useProducts() {
     setForm,
     deleteProduct,
     addProduct,
-    editProduct,
+    openEditProductModal,
     setIsModalOpen,
     setModalType,
-    setProducts,
+    // setProducts,
     handleSubmitForm,
   };
 }

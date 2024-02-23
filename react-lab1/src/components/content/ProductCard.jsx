@@ -8,7 +8,7 @@ import { Edit2, Trash2 } from "react-feather";
 export default function ProductCard({
   product,
   deleteProduct,
-  editProduct,
+  openEditProductModal,
   setModalType,
 }) {
   const { user, setUser } = useContext(UserContext);
@@ -28,7 +28,7 @@ export default function ProductCard({
 
   const handleEditProduct = (e) => {
     e.stopPropagation();
-    editProduct(product.id);
+    openEditProductModal(product.id);
     setModalType("edit");
   };
 

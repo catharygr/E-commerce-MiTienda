@@ -26,7 +26,7 @@ export default function MainContent() {
     setProducts,
     deleteProduct,
     addProduct,
-    editProduct,
+    openEditProductModal,
     handleSubmitForm,
     isLoading,
     error,
@@ -62,7 +62,7 @@ export default function MainContent() {
       product={product}
       deleteProduct={deleteProduct}
       addProduct={addProduct}
-      editProduct={editProduct}
+      openEditProductModal={openEditProductModal}
       form={form}
       setModalType={setModalType}
     />
