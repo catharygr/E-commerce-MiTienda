@@ -4,11 +4,14 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "../loader/Loader";
+import { useSelector } from "react-redux";
+import { getAllProducts } from "../../redux/reducers/productsReducer.js";
 
 export default function ShoppingCart() {
+  const products = useSelector(getAllProducts);
   const { user, setUser } = useContext(UserContext);
-  const [products, setProducts] = useState([]);
-  const [isLoading, isSetLoading] = useState(true);
+  // const [products, setProducts] = useState([]);
+  const [isLoading, isSetLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const productCounter = {};
@@ -16,7 +19,7 @@ export default function ShoppingCart() {
     productCounter[id] = productCounter[id] ? productCounter[id] + 1 : 1;
   });
   const mapeo = Object.keys(productCounter).map((id) => {
-    const product = products?.find(
+    const product = products.products?.find(
       (product) => product.id.toString() === id.toString()
     );
     return {
@@ -38,28 +41,28 @@ export default function ShoppingCart() {
     setUser({ ...user, shoppingCartItems: [] });
   };
 
-  const API_URL = "http://localhost:3000/products";
+  // const API_URL = "http://localhost:3000/products";
 
-  useEffect(() => {
-    isSetLoading(true);
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(API_URL);
-        setProducts(response.data);
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          setError("No products");
-        } else {
-          setError("Error fetching products");
-        }
-      } finally {
-        setTimeout(() => {
-          isSetLoading(false);
-        }, 1000);
-      }
-    };
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   isSetLoading(true);
+  //   const getProducts = async () => {
+  //     try {
+  //       const response = await axios.get(API_URL);
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       if (error.response && error.response.status === 404) {
+  //         setError("No products");
+  //       } else {
+  //         setError("Error fetching products");
+  //       }
+  //     } finally {
+  //       setTimeout(() => {
+  //         isSetLoading(false);
+  //       }, 1000);
+  //     }
+  //   };
+  //   getProducts();
+  // }, []);
 
   useEffect(() => {
     if (error) {
