@@ -51,10 +51,6 @@ function productsReducer(state = initialState, action) {
           ...state.products,
           products: action.payload.data,
         },
-        users: {
-          ...state.users,
-          users: action.payload.data,
-        },
       };
 
     default:

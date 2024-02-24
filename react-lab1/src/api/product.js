@@ -24,7 +24,7 @@ export const updateProductAction = (id) => {};
 
 export const getProductsAction = () => async (dispatch) => {
   try {
-    const { data } = await axios.get(API_URL);
+    const data = await axios.get(API_URL);
     dispatch({
       type: PRODUCTS_GET_PRODUCTS,
       payload: data,
