@@ -8,7 +8,7 @@ import {
 // import data from "../../data/db.json";
 
 const initialState = {
-  products: {},
+  products: null,
 };
 
 function productsReducer(state = initialState, action) {

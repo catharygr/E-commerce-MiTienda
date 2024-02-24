@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 export default function MainContent() {
   const products = useSelector(getAllProducts);
+  console.log(products);
 
   const { user } = useContext(UserContext);
   const {
