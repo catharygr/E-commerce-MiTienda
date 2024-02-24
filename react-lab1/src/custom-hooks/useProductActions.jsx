@@ -10,7 +10,7 @@ import {
 
 export default function useProductActions() {
   const dispatch = useDispatch();
-  const [isLoading, isSetLoading] = useState(false);
+  const [isLoading, isSetLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const addProductMiddleware = async (newProduct) => {

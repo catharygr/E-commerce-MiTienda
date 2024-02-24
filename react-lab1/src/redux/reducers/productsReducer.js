@@ -2,12 +2,13 @@ import {
   PRODUCTS_ADD_PRODUCT,
   PRODUCTS_DELETE_PRODUCT,
   PRODUCTS_UPDATE_PRODUCT,
+  PRODUCTS_GET_PRODUCTS,
 } from "../actions/actionTypes";
 
-import data from "../../data/db.json";
+// import data from "../../data/db.json";
 
 const initialState = {
-  products: data,
+  products: {},
 };
 
 function productsReducer(state = initialState, action) {
@@ -43,6 +44,19 @@ function productsReducer(state = initialState, action) {
           }),
         },
       };
+    case PRODUCTS_GET_PRODUCTS:
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          products: action.payload.data,
+        },
+        users: {
+          ...state.users,
+          users: action.payload.data,
+        },
+      };
+
     default:
       return state;
   }
