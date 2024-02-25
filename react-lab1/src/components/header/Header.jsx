@@ -30,6 +30,7 @@ export default function Header() {
           className="search-input"
           type="text"
           placeholder="Buscar productos"
+          name="search"
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
         />

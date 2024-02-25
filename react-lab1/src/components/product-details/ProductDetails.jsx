@@ -1,9 +1,9 @@
 import "./ProductDetails.css";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 // import axios from "axios";
-import Loader from "../loader/Loader";
+// import Loader from "../loader/Loader";
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/reducers/productsReducer.js";
 
@@ -11,8 +11,8 @@ export default function ProductDetails() {
   const products = useSelector(getAllProducts);
   const { user, setUser } = useContext(UserContext);
   const { id } = useParams();
-  const [isLoading, isSetLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [isLoading, isSetLoading] = useState(false);
+  // const [error, setError] = useState(null);
   // const [products, setProducts] = useState([]);
 
   const hadleAddToCart = () => {
@@ -45,16 +45,16 @@ export default function ProductDetails() {
   //   getProducts();
   // }, []);
 
-  useEffect(() => {
-    if (error) {
-      alert("Error loading products");
-      setError(null);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     alert("Error loading products");
+  //     setError(null);
+  //   }
+  // }, [error]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
   const findProduct = products.products.find(
     (product) => product.id.toString() === id.toString()
   );

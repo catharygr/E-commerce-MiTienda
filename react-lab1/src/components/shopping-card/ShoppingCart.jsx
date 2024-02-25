@@ -1,18 +1,13 @@
 import "./ShoppingCart.css";
 import Card from "./Card";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext, useState, useEffect } from "react";
-import axios from "axios";
-import Loader from "../loader/Loader";
+import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/reducers/productsReducer.js";
 
 export default function ShoppingCart() {
   const products = useSelector(getAllProducts);
   const { user, setUser } = useContext(UserContext);
-  // const [products, setProducts] = useState([]);
-  const [isLoading, isSetLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const productCounter = {};
   user.shoppingCartItems.forEach((id) => {
@@ -40,40 +35,6 @@ export default function ShoppingCart() {
   const handleReset = () => {
     setUser({ ...user, shoppingCartItems: [] });
   };
-
-  // const API_URL = "http://localhost:3000/products";
-
-  // useEffect(() => {
-  //   isSetLoading(true);
-  //   const getProducts = async () => {
-  //     try {
-  //       const response = await axios.get(API_URL);
-  //       setProducts(response.data);
-  //     } catch (error) {
-  //       if (error.response && error.response.status === 404) {
-  //         setError("No products");
-  //       } else {
-  //         setError("Error fetching products");
-  //       }
-  //     } finally {
-  //       setTimeout(() => {
-  //         isSetLoading(false);
-  //       }, 1000);
-  //     }
-  //   };
-  //   getProducts();
-  // }, []);
-
-  useEffect(() => {
-    if (error) {
-      alert("Error loading products");
-      setError(null);
-    }
-  }, [error]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <main className="shopping-cart-container">

@@ -36,7 +36,9 @@ export default function useProductActions() {
     } catch (error) {
       setError(error);
     } finally {
-      isSetLoading(false);
+      setTimeout(() => {
+        isSetLoading(false);
+      }, 2000);
     }
   };
   return {
