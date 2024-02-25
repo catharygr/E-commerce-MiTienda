@@ -1,12 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import { useSearchParams } from "react-router-dom";
 import Modal from "./Modal";
 import useProducts from "../../custom-hooks/useProducts";
 import { UserContext } from "../../contextos/UserContext";
-import { useContext, useEffect } from "react";
-import Loader from "../loader/Loader";
+import { useContext } from "react";
 import { getAllProducts } from "../../redux/reducers/productsReducer";
 import { useSelector } from "react-redux";
 
@@ -17,17 +15,11 @@ export default function MainContent() {
     form,
     isModalOpen,
     modalType,
-    isLoading,
-    error,
-    setProducts,
     setForm,
     setIsModalOpen,
     setModalType,
-    deleteProduct,
-    addProduct,
     openEditProductModal,
     handleSubmitForm,
-    setError,
   } = useProducts();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
@@ -57,24 +49,11 @@ export default function MainContent() {
       key={product.id}
       setIsModalOpen={setIsModalOpen}
       product={product}
-      deleteProduct={deleteProduct}
-      addProduct={addProduct}
       openEditProductModal={openEditProductModal}
       form={form}
       setModalType={setModalType}
     />
   ));
-
-  useEffect(() => {
-    if (error) {
-      alert("Error loading products");
-      setError(null);
-    }
-  }, [error]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <>
@@ -91,7 +70,6 @@ export default function MainContent() {
         <Modal
           form={form}
           setForm={setForm}
-          setProducts={setProducts}
           modalType={modalType}
           setIsModalOpen={setIsModalOpen}
           handleSubmitForm={handleSubmitForm}
