@@ -19,7 +19,6 @@ export default function MainContent() {
   const {
     form,
     isModalOpen,
-    // products,
     modalType,
     setForm,
     setIsModalOpen,

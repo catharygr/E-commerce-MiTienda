@@ -19,7 +19,18 @@ export const addProductAction = (newProduct) => async (dispatch) => {
     throw new Error(error.message);
   }
 };
-export const removeProductAction = (id) => {};
+export const removeProductAction = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+    dispatch({
+      type: PRODUCTS_DELETE_PRODUCT,
+      payload: id,
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 export const updateProductAction = (id) => {};
 
 export const getProductsAction = () => async (dispatch) => {

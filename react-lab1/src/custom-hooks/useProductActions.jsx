@@ -25,7 +25,18 @@ export default function useProductActions() {
       isSetLoading(false);
     }
   };
-  const removeProductMiddleware = () => {};
+  const removeProductMiddleware = async (id) => {
+    isSetLoading(true);
+    setError(null);
+    try {
+      await dispatch(removeProductAction(id));
+    } catch (error) {
+      setError(error);
+    } finally {
+      isSetLoading(false);
+    }
+  };
+
   const updateProductMiddleware = () => {};
 
   const getProductsMiddleware = async () => {
