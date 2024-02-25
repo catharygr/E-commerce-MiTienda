@@ -1,11 +1,5 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useDispatch } from "react-redux";
-import {
-  addProduct,
-  removeProduct,
-  updateProduct,
-} from "../redux/actions/index.js";
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../redux/reducers/productsReducer.js";
 import useProductActions from "./useProductActions";
@@ -20,8 +14,6 @@ export default function useProducts() {
     title: "",
     description: "",
   });
-  const [error, setError] = useState(null);
-  const dispatch = useDispatch();
 
   // Función que se ejecuta en el formulario del modal - onSubmit
   const handleSubmitForm = async (e) => {
@@ -38,7 +30,6 @@ export default function useProducts() {
 
       try {
         addProductMiddleware(newProduct);
-        addProduct(newProduct);
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error creating product", error);
@@ -77,27 +68,14 @@ export default function useProducts() {
     setIsModalOpen(true);
   };
 
-  const deleteProduct = async (id) => {
-    try {
-      dispatch(removeProduct(id));
-    } catch (error) {
-      console.error("Error deleting product", error);
-    }
-  };
-
   return {
-    products,
     form,
-    isModalOpen,
-    modalType,
-    error,
-    setError,
     setForm,
-    deleteProduct,
-    addProduct,
-    openEditProductModal,
+    isModalOpen,
     setIsModalOpen,
+    modalType,
     setModalType,
+    openEditProductModal,
     handleSubmitForm,
   };
 }
