@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
 import ProductCard from "./ProductCard";
 import "./MainContent.css";
 import { useSearchParams } from "react-router-dom";
@@ -13,23 +12,21 @@ import { useSelector } from "react-redux";
 
 export default function MainContent() {
   const products = useSelector(getAllProducts);
-  console.log(products);
-
   const { user } = useContext(UserContext);
   const {
     form,
     isModalOpen,
     modalType,
+    isLoading,
+    error,
+    setProducts,
     setForm,
     setIsModalOpen,
     setModalType,
-    setProducts,
     deleteProduct,
     addProduct,
     openEditProductModal,
     handleSubmitForm,
-    isLoading,
-    error,
     setError,
   } = useProducts();
   const [searchParams] = useSearchParams();
