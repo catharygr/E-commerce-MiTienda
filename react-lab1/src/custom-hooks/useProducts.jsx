@@ -9,9 +9,11 @@ import {
 } from "../redux/actions/index.js";
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../redux/reducers/productsReducer.js";
+import useProductActions from "./useProductActions";
 
 export default function useProducts() {
   const products = useSelector(getAllProducts);
+  const { addProductMiddleware, removeProductMiddleware } = useProductActions();
 
   // const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,7 +66,7 @@ export default function useProducts() {
       try {
         // await axios.post(API_URL, newProduct);
         // setProducts((prevProducts) => [...prevProducts, newProduct]);
-        dispatch(addProduct(newProduct));
+        addProductMiddleware(newProduct);
         addProduct(newProduct);
         setIsModalOpen(false);
       } catch (error) {

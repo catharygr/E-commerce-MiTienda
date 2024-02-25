@@ -15,9 +15,8 @@ export default function useProductActions() {
 
   const addProductMiddleware = async (newProduct) => {
     isSetLoading(true);
+    setError(null);
     try {
-      isSetLoading(true);
-      setError(null);
       await dispatch(addProductAction(newProduct));
     } catch (error) {
       setError(error);

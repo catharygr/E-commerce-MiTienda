@@ -4,15 +4,16 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Edit2, Trash2 } from "react-feather";
+import useProductActions from "../../custom-hooks/useProductActions";
 
 export default function ProductCard({
   product,
-  deleteProduct,
   openEditProductModal,
   setModalType,
 }) {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const { removeProductMiddleware } = useProductActions();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -34,7 +35,7 @@ export default function ProductCard({
 
   const handleDeleteProduct = (e) => {
     e.stopPropagation();
-    deleteProduct(product.id);
+    removeProductMiddleware(product.id);
   };
 
   return (
