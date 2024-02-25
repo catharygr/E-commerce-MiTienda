@@ -5,8 +5,6 @@ import {
   PRODUCTS_GET_PRODUCTS,
 } from "../actions/actionTypes";
 
-// import data from "../../data/db.json";
-
 const initialState = {
   products: null,
 };

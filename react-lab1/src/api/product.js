@@ -31,7 +31,17 @@ export const removeProductAction = (id) => async (dispatch) => {
   }
 };
 
-export const updateProductAction = (id) => {};
+export const updateProductAction = (id) => async (dispatch) => {
+  try {
+    await axios.put(`${API_URL}/${id}`);
+    dispatch({
+      type: PRODUCTS_UPDATE_PRODUCT,
+      payload: id,
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
 export const getProductsAction = () => async (dispatch) => {
   try {

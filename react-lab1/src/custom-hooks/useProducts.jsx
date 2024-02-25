@@ -94,8 +94,8 @@ export default function useProducts() {
         //     return product;
         //   });
         //   return newProducts;
-        // });
-        dispatch(updateProduct(editedProduct));
+        // });dispatch(updateProduct(editedProduct));
+        removeProductMiddleware(editedProduct);
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error updating product", error);

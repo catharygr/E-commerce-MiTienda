@@ -36,7 +36,17 @@ export default function useProductActions() {
     }
   };
 
-  const updateProductMiddleware = () => {};
+  const updateProductMiddleware = async (id) => {
+    isSetLoading(true);
+    setError(null);
+    try {
+      await dispatch(updateProductAction(id));
+    } catch (error) {
+      setError(error);
+    } finally {
+      isSetLoading(false);
+    }
+  };
 
   const getProductsMiddleware = async () => {
     isSetLoading(true);
