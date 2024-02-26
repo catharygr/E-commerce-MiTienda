@@ -17,7 +17,7 @@ export default function ProductDetails() {
     });
   };
 
-  const findProduct = products.products.find(
+  const findProduct = products?.find(
     (product) => product.id.toString() === id.toString()
   );
   const { title, price, description, image, category } = findProduct;
