@@ -43,13 +43,22 @@ export const updateProductAction = (product) => async (dispatch) => {
   }
 };
 
-export const getProductsAction = () => async (dispatch) => {
+// export const getProductsAction = () => async (dispatch) => {
+//   try {
+//     const fetchData = await axios.get(API_URL);
+//     dispatch({
+//       type: PRODUCTS_GET_PRODUCTS,
+//       payload: fetchData.data,
+//     });
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// };
+
+export const getProductsMiddleware = async () => {
   try {
-    const fetchData = await axios.get(API_URL);
-    dispatch({
-      type: PRODUCTS_GET_PRODUCTS,
-      payload: fetchData.data,
-    });
+    const response = await axios.get(API_URL);
+    return response.data;
   } catch (error) {
     throw new Error(error.message);
   }

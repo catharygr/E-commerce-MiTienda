@@ -6,6 +6,10 @@ import Promotion from "../promotion/Promotion";
 import useProductActions from "../../custom-hooks/useProductActions";
 import Loader from "../loader/Loader";
 import { useEffect } from "react";
+import {
+  getProductsLoading,
+  getProductsError,
+} from "../../redux/reducers/productsReducer";
 
 export default function Layout() {
   const { getProductsMiddleware, isLoading } = useProductActions();
