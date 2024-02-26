@@ -18,7 +18,7 @@ export const getProductsThunk = createAsyncThunk(
 // Slice
 const initialState = {
   products: null,
-  isLoading: true,
+  loading: true,
   error: null,
 };
 
@@ -29,20 +29,20 @@ const productsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProductsThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.products = action.payload;
       })
       .addMatcher(
         (action) => action.type.endsWith("pending"),
         (state) => {
-          state.isLoading = true;
+          state.loading = true;
           state.error = null;
         }
       )
       .addMatcher(
         (action) => action.type.endsWith("rejected"),
         (state, action) => {
-          state.isLoading = false;
+          state.loading = false;
           state.error = action.error.message;
         }
       );
@@ -100,5 +100,5 @@ export default productsSlice.reducer;
 
 export const { getProducts } = productsSlice.actions;
 export const getAllProducts = (state) => state.products.products;
-export const getProductsLoading = (state) => state.products.isLoading;
+export const getProductsLoading = (state) => state.products.loading;
 export const getProductsError = (state) => state.products.error;
