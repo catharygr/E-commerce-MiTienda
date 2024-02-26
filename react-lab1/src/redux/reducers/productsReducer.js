@@ -8,7 +8,8 @@ export const getProductsThunk = createAsyncThunk(
   async () => {
     try {
       const response = await PRODUCT_API.getProductsMiddleware();
-      return response.data;
+      console.log(response);
+      return response;
     } catch (error) {
       throw new Error(error.message);
     }

@@ -26,9 +26,9 @@ export default function MainContent() {
 
   function filterProducts(data) {
     if (!search) {
-      return data.products;
+      return data;
     } else {
-      return data.products.filter((product) =>
+      return data.filter((product) =>
         product.title.toLowerCase().includes(search.toLowerCase())
       );
     }
