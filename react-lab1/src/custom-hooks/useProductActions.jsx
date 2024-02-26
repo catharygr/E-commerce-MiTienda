@@ -5,7 +5,7 @@ import {
   addProductAction,
   removeProductAction,
   updateProductAction,
-  getProductsAction,
+  // getProductsAction,
 } from "../api/product.js";
 
 export default function useProductActions() {
@@ -48,25 +48,25 @@ export default function useProductActions() {
     }
   };
 
-  const getProductsMiddleware = async () => {
-    isSetLoading(true);
-    setError(null);
-    try {
-      await dispatch(getProductsAction());
-    } catch (error) {
-      setError(error);
-    } finally {
-      setTimeout(() => {
-        isSetLoading(false);
-      }, 2000);
-    }
-  };
+  // const getProductsMiddleware = async () => {
+  //   isSetLoading(true);
+  //   setError(null);
+  //   try {
+  //     await dispatch(getProductsAction());
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     setTimeout(() => {
+  //       isSetLoading(false);
+  //     }, 2000);
+  //   }
+  // };
   return {
     isLoading,
     error,
     addProductMiddleware,
     removeProductMiddleware,
     updateProductMiddleware,
-    getProductsMiddleware,
+    // getProductsMiddleware,
   };
 }

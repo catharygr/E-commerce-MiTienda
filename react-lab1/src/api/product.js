@@ -3,7 +3,7 @@ import {
   PRODUCTS_ADD_PRODUCT,
   PRODUCTS_DELETE_PRODUCT,
   PRODUCTS_UPDATE_PRODUCT,
-  PRODUCTS_GET_PRODUCTS,
+  // PRODUCTS_GET_PRODUCTS,
 } from "../redux/actions/actionTypes";
 
 const API_URL = "http://localhost:3000/products";
@@ -43,17 +43,17 @@ export const updateProductAction = (product) => async (dispatch) => {
   }
 };
 
-export const getProductsAction = () => async (dispatch) => {
-  try {
-    const fetchData = await axios.get(API_URL);
-    dispatch({
-      type: PRODUCTS_GET_PRODUCTS,
-      payload: fetchData.data,
-    });
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+// export const getProductsAction = () => async (dispatch) => {
+//   try {
+//     const fetchData = await axios.get(API_URL);
+//     dispatch({
+//       type: PRODUCTS_GET_PRODUCTS,
+//       payload: fetchData.data,
+//     });
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// };
 
 export const getProductsMiddleware = async () => {
   try {

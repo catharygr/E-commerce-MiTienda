@@ -3,7 +3,6 @@ import Header from "../header//Header";
 import Footer from "../footer/Footer";
 import { Outlet } from "react-router-dom";
 import Promotion from "../promotion/Promotion";
-// import useProductActions from "../../custom-hooks/useProductActions";
 import Loader from "../loader/Loader";
 import { useEffect } from "react";
 import {
@@ -18,7 +17,6 @@ export default function Layout() {
   const dispatch = useDispatch();
   const loading = useSelector(getProductsLoading);
   const error = useSelector(getProductsError);
-  // const { getProductsMiddleware, loading } = useProductActions();
 
   useEffect(() => {
     dispatch(getProductsThunk());
@@ -28,6 +26,7 @@ export default function Layout() {
     <>
       <Header />
       <Promotion />
+      {error && <p>Error: {error}</p>}
       {loading ? <Loader /> : <Outlet />}
       <Footer />
     </>
