@@ -1,10 +1,9 @@
 import axios from "axios";
-import {
-  // PRODUCTS_ADD_PRODUCT,
-  // PRODUCTS_DELETE_PRODUCT,
-  PRODUCTS_UPDATE_PRODUCT,
-  // PRODUCTS_GET_PRODUCTS,
-} from "../redux/actions/actionTypes";
+import {} from // PRODUCTS_ADD_PRODUCT,
+// PRODUCTS_DELETE_PRODUCT,
+// PRODUCTS_UPDATE_PRODUCT,
+// PRODUCTS_GET_PRODUCTS,
+"../redux/actions/actionTypes";
 
 const API_URL = "http://localhost:3000/products";
 
@@ -36,6 +35,14 @@ export const removeProductMiddleware = async (id) => {
   }
 };
 
+export const updateProductMiddleware = async (product) => {
+  try {
+    await axios.put(`${API_URL}/${product.id}`, product);
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
 // export const removeProductAction = (id) => async (dispatch) => {
 //   try {
 //     await axios.delete(`${API_URL}/${id}`);
@@ -48,17 +55,17 @@ export const removeProductMiddleware = async (id) => {
 //   }
 // };
 
-export const updateProductAction = (product) => async (dispatch) => {
-  try {
-    await axios.put(`${API_URL}/${product.id}`, product);
-    dispatch({
-      type: PRODUCTS_UPDATE_PRODUCT,
-      payload: product,
-    });
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+// export const updateProductAction = (product) => async (dispatch) => {
+//   try {
+//     await axios.put(`${API_URL}/${product.id}`, product);
+//     dispatch({
+//       type: PRODUCTS_UPDATE_PRODUCT,
+//       payload: product,
+//     });
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// };
 
 // export const getProductsAction = () => async (dispatch) => {
 //   try {

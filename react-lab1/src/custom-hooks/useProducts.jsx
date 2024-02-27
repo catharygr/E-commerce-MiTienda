@@ -2,13 +2,16 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProducts } from "../redux/reducers/productsReducer.js";
-import useProductActions from "./useProductActions";
-import { addProductThunk } from "../redux/reducers/productsReducer";
+// import useProductActions from "./useProductActions";
+import {
+  addProductThunk,
+  updateProductThunk,
+} from "../redux/reducers/productsReducer";
 
 export default function useProducts() {
   const products = useSelector(getAllProducts);
   const dispatch = useDispatch();
-  const { updateProductMiddleware } = useProductActions();
+  // const { updateProductMiddleware } = useProductActions();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
@@ -39,7 +42,7 @@ export default function useProducts() {
     }
 
     if (modalType === "edit") {
-      const findProduct = products.products.find(
+      const findProduct = products?.find(
         (product) => product.id.toString() === form.id.toString()
       );
       const editedProduct = {
@@ -49,7 +52,7 @@ export default function useProducts() {
         description: form.description,
       };
       try {
-        updateProductMiddleware(editedProduct);
+        dispatch(updateProductThunk(editedProduct));
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error updating product", error);
@@ -58,7 +61,7 @@ export default function useProducts() {
   };
 
   const openEditProductModal = (id) => {
-    const filteredProduct = products.products.filter(
+    const filteredProduct = products?.filter(
       (product) => product.id.toString() === id.toString()
     );
     setForm({

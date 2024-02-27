@@ -37,6 +37,18 @@ export const addProductThunk = createAsyncThunk(
   }
 );
 
+export const updateProductThunk = createAsyncThunk(
+  "products/updateProduct",
+  async (product) => {
+    try {
+      await PRODUCT_API.updateProductMiddleware(product);
+      return product;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+);
+
 // Slice
 const initialState = {
   products: null,
@@ -63,6 +75,12 @@ const productsSlice = createSlice({
       .addCase(addProductThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.products = [...state.products, action.payload];
+      })
+      .addCase(updateProductThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = state.products.map((product) =>
+          product.id === action.payload.id ? action.payload : product
+        );
       })
       .addMatcher(
         (action) => action.type.endsWith("pending"),

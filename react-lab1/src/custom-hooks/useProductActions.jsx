@@ -1,12 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
-import {
-  // addProductAction,
-  // removeProductAction,
-  updateProductAction,
-  // getProductsAction,
-} from "../api/product.js";
+import {} from // addProductAction,
+// removeProductAction,
+// updateProductAction,
+// getProductsAction,
+"../api/product.js";
 
 export default function useProductActions() {
   const dispatch = useDispatch();
@@ -36,17 +35,17 @@ export default function useProductActions() {
   //   }
   // };
 
-  const updateProductMiddleware = async (product) => {
-    isSetLoading(true);
-    setError(null);
-    try {
-      await dispatch(updateProductAction(product));
-    } catch (error) {
-      setError(error);
-    } finally {
-      isSetLoading(false);
-    }
-  };
+  // const updateProductMiddleware = async (product) => {
+  //   isSetLoading(true);
+  //   setError(null);
+  //   try {
+  //     await dispatch(updateProductAction(product));
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     isSetLoading(false);
+  //   }
+  // };
 
   // const getProductsMiddleware = async () => {
   //   isSetLoading(true);
