@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import {
   addProductAction,
-  removeProductAction,
+  // removeProductAction,
   updateProductAction,
   // getProductsAction,
 } from "../api/product.js";
@@ -24,17 +24,17 @@ export default function useProductActions() {
       isSetLoading(false);
     }
   };
-  const removeProductMiddleware = async (id) => {
-    isSetLoading(true);
-    setError(null);
-    try {
-      await dispatch(removeProductAction(id));
-    } catch (error) {
-      setError(error);
-    } finally {
-      isSetLoading(false);
-    }
-  };
+  // const removeProductMiddleware = async (id) => {
+  //   isSetLoading(true);
+  //   setError(null);
+  //   try {
+  //     await dispatch(removeProductAction(id));
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     isSetLoading(false);
+  //   }
+  // };
 
   const updateProductMiddleware = async (product) => {
     isSetLoading(true);
@@ -65,7 +65,7 @@ export default function useProductActions() {
     isLoading,
     error,
     addProductMiddleware,
-    removeProductMiddleware,
+    // removeProductMiddleware,
     updateProductMiddleware,
     // getProductsMiddleware,
   };

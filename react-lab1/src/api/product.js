@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   PRODUCTS_ADD_PRODUCT,
-  PRODUCTS_DELETE_PRODUCT,
+  // PRODUCTS_DELETE_PRODUCT,
   PRODUCTS_UPDATE_PRODUCT,
   // PRODUCTS_GET_PRODUCTS,
 } from "../redux/actions/actionTypes";
@@ -19,17 +19,25 @@ export const addProductAction = (newProduct) => async (dispatch) => {
     throw new Error(error.message);
   }
 };
-export const removeProductAction = (id) => async (dispatch) => {
+export const removeProductMiddleware = async (id) => {
   try {
     await axios.delete(`${API_URL}/${id}`);
-    dispatch({
-      type: PRODUCTS_DELETE_PRODUCT,
-      payload: id,
-    });
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
+// export const removeProductAction = (id) => async (dispatch) => {
+//   try {
+//     await axios.delete(`${API_URL}/${id}`);
+//     dispatch({
+//       type: PRODUCTS_DELETE_PRODUCT,
+//       payload: id,
+//     });
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// };
 
 export const updateProductAction = (product) => async (dispatch) => {
   try {
