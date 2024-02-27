@@ -39,7 +39,6 @@ export const addProductThunk = createAsyncThunk(
 export const updateProductThunk = createAsyncThunk(
   "products/updateProduct",
   async (product) => {
-    // console.log("product", product);
     try {
       await PRODUCT_API.updateProductMiddleware(product);
       return product;

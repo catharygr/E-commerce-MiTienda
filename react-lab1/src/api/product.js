@@ -20,7 +20,6 @@ export const removeProductMiddleware = async (id) => {
 
 export const updateProductMiddleware = async (product) => {
   try {
-    console.log("product", product);
     await axios.put(`${API_URL}/${product.id}`, product);
   } catch (error) {
     throw new Error(error.message);
