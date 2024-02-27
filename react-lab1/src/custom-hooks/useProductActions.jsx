@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 import {
-  addProductAction,
+  // addProductAction,
   // removeProductAction,
   updateProductAction,
   // getProductsAction,
@@ -13,17 +13,17 @@ export default function useProductActions() {
   const [isLoading, isSetLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const addProductMiddleware = async (newProduct) => {
-    isSetLoading(true);
-    setError(null);
-    try {
-      await dispatch(addProductAction(newProduct));
-    } catch (error) {
-      setError(error);
-    } finally {
-      isSetLoading(false);
-    }
-  };
+  // const addProductMiddleware = async (newProduct) => {
+  //   isSetLoading(true);
+  //   setError(null);
+  //   try {
+  //     await dispatch(addProductAction(newProduct));
+  //   } catch (error) {
+  //     setError(error);
+  //   } finally {
+  //     isSetLoading(false);
+  //   }
+  // };
   // const removeProductMiddleware = async (id) => {
   //   isSetLoading(true);
   //   setError(null);
@@ -64,7 +64,7 @@ export default function useProductActions() {
   return {
     isLoading,
     error,
-    addProductMiddleware,
+    // addProductMiddleware,
     // removeProductMiddleware,
     updateProductMiddleware,
     // getProductsMiddleware,

@@ -90,6 +90,13 @@
       "price": "88",
       "description": "Nuevo",
       "image": "https://via.placeholder.com/150/92c952"
+    },
+    {
+      "id": "5b0002d3-03c9-4ce3-9243-e319e1a31ce8",
+      "title": "camisa",
+      "price": "34",
+      "description": "Nuevo",
+      "image": "https://via.placeholder.com/150/92c952"
     }
   ],
   "users": [

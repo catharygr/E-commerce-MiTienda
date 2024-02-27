@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  PRODUCTS_ADD_PRODUCT,
+  // PRODUCTS_ADD_PRODUCT,
   // PRODUCTS_DELETE_PRODUCT,
   PRODUCTS_UPDATE_PRODUCT,
   // PRODUCTS_GET_PRODUCTS,
@@ -8,17 +8,26 @@ import {
 
 const API_URL = "http://localhost:3000/products";
 
-export const addProductAction = (newProduct) => async (dispatch) => {
+// export const addProductAction = (newProduct) => async (dispatch) => {
+//   try {
+//     await axios.post(API_URL, newProduct);
+//     dispatch({
+//       type: PRODUCTS_ADD_PRODUCT,
+//       payload: newProduct,
+//     });
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// };
+
+export const addProductMiddleware = async (newProduct) => {
   try {
     await axios.post(API_URL, newProduct);
-    dispatch({
-      type: PRODUCTS_ADD_PRODUCT,
-      payload: newProduct,
-    });
   } catch (error) {
     throw new Error(error.message);
   }
 };
+
 export const removeProductMiddleware = async (id) => {
   try {
     await axios.delete(`${API_URL}/${id}`);

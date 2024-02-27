@@ -25,6 +25,17 @@ export const revomeProductThunk = createAsyncThunk(
     }
   }
 );
+export const addProductThunk = createAsyncThunk(
+  "products/addProduct",
+  async (newProduct) => {
+    try {
+      await PRODUCT_API.addProductMiddleware(newProduct);
+      return newProduct;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+);
 
 // Slice
 const initialState = {
@@ -48,6 +59,10 @@ const productsSlice = createSlice({
         state.products = state.products.filter(
           (product) => product.id !== action.payload
         );
+      })
+      .addCase(addProductThunk.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = [...state.products, action.payload];
       })
       .addMatcher(
         (action) => action.type.endsWith("pending"),

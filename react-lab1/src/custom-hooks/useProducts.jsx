@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getAllProducts } from "../redux/reducers/productsReducer.js";
 import useProductActions from "./useProductActions";
+import { addProductThunk } from "../redux/reducers/productsReducer";
 
 export default function useProducts() {
   const products = useSelector(getAllProducts);
-  const { addProductMiddleware, updateProductMiddleware } = useProductActions();
+  const dispatch = useDispatch();
+  const { updateProductMiddleware } = useProductActions();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
@@ -29,7 +31,7 @@ export default function useProducts() {
       };
 
       try {
-        addProductMiddleware(newProduct);
+        dispatch(addProductThunk(newProduct));
         setIsModalOpen(false);
       } catch (error) {
         console.error("Error creating product", error);
