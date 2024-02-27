@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "id": "13",
-      "title": "Acer ",
-      "price": "5",
-      "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
-      "category": "electronics",
-      "image": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
-      "rating": {
-        "rate": 2.9,
-        "count": 250
-      }
-    },
-    {
       "id": "14",
       "title": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
       "price": 999.99,
@@ -95,6 +83,13 @@
       "id": "5b0002d3-03c9-4ce3-9243-e319e1a31ce8",
       "title": "camisa",
       "price": "34",
+      "description": "Nuevo",
+      "image": "https://via.placeholder.com/150/92c952"
+    },
+    {
+      "id": "e619ebbb-5ab9-4c92-949e-e7751c84d0ad",
+      "title": "Pantalón ",
+      "price": "45",
       "description": "Nuevo",
       "image": "https://via.placeholder.com/150/92c952"
     }

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProducts } from "../redux/reducers/productsReducer.js";
-// import useProductActions from "./useProductActions";
 import {
   addProductThunk,
   updateProductThunk,
@@ -11,7 +10,6 @@ import {
 export default function useProducts() {
   const products = useSelector(getAllProducts);
   const dispatch = useDispatch();
-  // const { updateProductMiddleware } = useProductActions();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [form, setForm] = useState({
