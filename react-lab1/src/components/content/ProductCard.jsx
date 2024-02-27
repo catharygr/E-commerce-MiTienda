@@ -4,8 +4,9 @@ import { UserContext } from "../../contextos/UserContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Edit2, Trash2 } from "react-feather";
-import useProductActions from "../../custom-hooks/useProductActions";
-
+// import useProductActions from "../../custom-hooks/useProductActions";
+import { revomeProductThunk } from "../../redux/reducers/productsReducer";
+import { useDispatch } from "react-redux";
 export default function ProductCard({
   product,
   openEditProductModal,
@@ -13,7 +14,8 @@ export default function ProductCard({
 }) {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const { removeProductMiddleware } = useProductActions();
+  const dispatch = useDispatch();
+  // const { removeProductMiddleware } = useProductActions();
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -35,7 +37,8 @@ export default function ProductCard({
 
   const handleDeleteProduct = (e) => {
     e.stopPropagation();
-    removeProductMiddleware(product.id);
+    // removeProductMiddleware(product.id);
+    dispatch(revomeProductThunk(product.id));
   };
 
   return (

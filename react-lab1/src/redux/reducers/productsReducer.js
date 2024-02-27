@@ -18,9 +18,8 @@ export const revomeProductThunk = createAsyncThunk(
   "products/removeProduct",
   async (id) => {
     try {
-      const response = await PRODUCT_API.removeProductMiddleware(id);
-      console.log(response);
-      return response;
+      await PRODUCT_API.removeProductMiddleware(id);
+      return id;
     } catch (error) {
       throw new Error(error.message);
     }
