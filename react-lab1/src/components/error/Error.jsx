@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import "./Error.css";
 
-export default function Error() {
+export default function Error({ error }) {
   return (
     <div className="error-container">
-      <h1>404 Not Found</h1>
+      <h1>Error: {error}</h1>
       <p>Página no encontrada</p>
       <Link
         className="error-link"

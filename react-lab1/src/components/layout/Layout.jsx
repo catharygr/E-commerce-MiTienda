@@ -27,7 +27,7 @@ export default function Layout() {
     <>
       <Header />
       <Promotion />
-      {error && <Error />}
+      {error && <Error error={error} />}
       {loading ? <Loader /> : <Outlet />}
       <Footer />
     </>
