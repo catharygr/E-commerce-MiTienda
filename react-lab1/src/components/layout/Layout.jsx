@@ -10,6 +10,7 @@ import {
   getProductsError,
   getProductsThunk,
 } from "../../redux/reducers/productsReducer";
+import Error from "../error/Error";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -26,7 +27,7 @@ export default function Layout() {
     <>
       <Header />
       <Promotion />
-      {error && <p>Error: {error}</p>}
+      {error && <Error />}
       {loading ? <Loader /> : <Outlet />}
       <Footer />
     </>
