@@ -24,15 +24,7 @@ export default function MainContent() {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
 
-  function filterProducts(data) {
-    if (!search) {
-      return data;
-    } else {
-      return data.filter((product) =>
-        product.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-  }
+  if (!products) return;
 
   const handleNewProductModal = () => {
     setForm({
@@ -43,6 +35,16 @@ export default function MainContent() {
     setModalType("new");
     setIsModalOpen(true);
   };
+
+  function filterProducts(data) {
+    if (!search) {
+      return data;
+    } else {
+      return data.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+  }
 
   const mapeo = filterProducts(products).map((product) => (
     <ProductCard
