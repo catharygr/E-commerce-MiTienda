@@ -234,6 +234,13 @@
       "price": "12",
       "description": "Colorida",
       "image": "https://via.placeholder.com/150/92c952"
+    },
+    {
+      "id": "121c86c2-ba13-4f02-b0f6-dba5f5ae5a11",
+      "title": "Pantalón",
+      "price": "12",
+      "description": "Nuevo",
+      "image": "https://via.placeholder.com/150/92c952"
     }
   ]
 }
