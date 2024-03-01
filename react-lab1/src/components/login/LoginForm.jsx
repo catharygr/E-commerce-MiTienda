@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
-  // const { form, setName, setEmail, reset } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const {
@@ -18,39 +17,63 @@ export default function LoginForm() {
     trigger,
   } = useForm();
 
-  // Función que maneja el evento de submit
   // const handleSubmitForm = (e) => {
   //   e.preventDefault();
 
-  //   // if (user.isLogged) {
-  //   //   setUser({
-  //   //     ...user,
-  //   //     isLogged: false,
-  //   //     role: "user",
-  //   //   });
-  //   //   navigate("/");
-  //   // } else if (!user.isLogged) {
-  //   //   if (!form.name || !form.email) {
-  //   //     alert("Por favor, rellena todos los campos");
-  //   //     return;
-  //   // }
+  // if (user.isLogged) {
+  //   setUser({
+  //     ...user,
+  //     isLogged: false,
+  //     role: "user",
+  //   });
+  //   navigate("/");
+  // } else if (!user.isLogged) {
+  //   if (!form.name || !form.email) {
+  //     alert("Por favor, rellena todos los campos");
+  //     return;
+  // }
 
-  //   //   const userEmail = form.email.trim();
-  //   //   const role = userEmail.includes("@admin") ? "admin" : "user";
+  //   const userEmail = form.email.trim();
+  //   const role = userEmail.includes("@admin") ? "admin" : "user";
 
-  //   //   setUser({
-  //   //     ...user,
-  //   //     ...form,
-  //   //     isLogged: true,
-  //   //     role,
-  //   //   });
-  //   //   reset();
-  //   //   navigate(location.state?.pathname);
-  //   // }
+  //   setUser({
+  //     ...user,
+  //     ...form,
+  //     isLogged: true,
+  //     role,
+  //   });
+  //   reset();
+  //   navigate(location.state?.pathname);
+  // }
   // };
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit((form) => {
+    console.log(form);
+
+    if (user.isLogged) {
+      setUser({
+        ...user,
+        isLogged: false,
+        role: "user",
+      });
+      navigate("/");
+    } else if (!user.isLogged) {
+      if (!form.name || !form.email) {
+        alert("Por favor, rellena todos los campos");
+        return;
+      }
+
+      const userEmail = form.email.trim();
+      const role = userEmail.includes("@admin") ? "admin" : "user";
+
+      setUser({
+        ...user,
+        ...form,
+        isLogged: true,
+        role,
+      });
+      navigate(location.state?.pathname);
+    }
   });
 
   return (
@@ -67,7 +90,10 @@ export default function LoginForm() {
           <input
             type="text"
             id="name"
-            {...register("name", { required: "Por favor, ingrese su nombre" })}
+            {...register("name", {
+              required: "Por favor, ingrese su nombre",
+              onBlur: () => trigger("name"),
+            })}
           />
           <label htmlFor="email">Email</label>
           {errors.email && (
@@ -82,6 +108,7 @@ export default function LoginForm() {
                 value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
                 message: "El mail no es válido",
               },
+              onBlur: () => trigger("email"),
             })}
           />
           <label htmlFor="password">Contraseña</label>
@@ -93,6 +120,7 @@ export default function LoginForm() {
             id="password"
             {...register("password", {
               required: "Por favor, ingrese su contraseña",
+              onBlur: () => trigger("password"),
               minLength: { value: 8, message: "Minimo 8 caracteres" },
             })}
           />
@@ -107,6 +135,7 @@ export default function LoginForm() {
             id="confirmPassword"
             {...register("confirmPassword", {
               required: "Por favor, repita la contraseña",
+              onBlur: () => trigger("confirmPassword"),
               validate: (value) =>
                 value === watch("password") || "Las contraseñas no coinciden",
             })}
