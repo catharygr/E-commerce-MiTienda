@@ -92,7 +92,7 @@ export default function LoginForm() {
             type="password"
             id="password"
             {...register("password", {
-              required: "Minimo 8 caracteres",
+              required: "Por favor, ingrese su contraseña",
               minLength: { value: 8, message: "Minimo 8 caracteres" },
             })}
           />
@@ -106,7 +106,7 @@ export default function LoginForm() {
             type="password"
             id="confirmPassword"
             {...register("confirmPassword", {
-              required: "Las contraseñas no coinciden",
+              required: "Por favor, repita la contraseña",
               validate: (value) =>
                 value === watch("password") || "Las contraseñas no coinciden",
             })}
