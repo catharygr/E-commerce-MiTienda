@@ -30,3 +30,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.login-form-error-msg {
+  color: red;
+  font-size: 0.8rem;
+}

@@ -61,14 +61,18 @@ export default function LoginForm() {
       {!user.isLogged && (
         <>
           <label htmlFor="name">Nombre</label>
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && (
+            <p className="login-form-error-msg">{errors.name.message}</p>
+          )}
           <input
             type="text"
             id="name"
             {...register("name", { required: "Por favor, ingrese su nombre" })}
           />
           <label htmlFor="email">Email</label>
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && (
+            <p className="login-form-error-msg">{errors.email.message}</p>
+          )}
           <input
             type="email"
             id="email"
@@ -81,7 +85,9 @@ export default function LoginForm() {
             })}
           />
           <label htmlFor="password">Contraseña</label>
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && (
+            <p className="login-form-error-msg">{errors.password.message}</p>
+          )}
           <input
             type="password"
             id="password"
@@ -91,12 +97,16 @@ export default function LoginForm() {
             })}
           />
           <label htmlFor="confirmPassword">Repite la contraseña</label>
-          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+          {errors.confirmPassword && (
+            <p className="login-form-error-msg">
+              {errors.confirmPassword.message}
+            </p>
+          )}
           <input
             type="password"
             id="confirmPassword"
             {...register("confirmPassword", {
-              required: true,
+              required: "Las contraseñas no coinciden",
               validate: (value) =>
                 value === watch("password") || "Las contraseñas no coinciden",
             })}
