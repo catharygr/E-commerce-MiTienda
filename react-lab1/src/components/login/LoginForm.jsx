@@ -1,7 +1,6 @@
 import "./LoginForm.css";
 import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
-// import useForm from "../../custom-hooks/useForm";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -48,8 +47,6 @@ export default function LoginForm() {
   // };
 
   const onSubmit = handleSubmit((form) => {
-    console.log(form);
-
     if (user.isLogged) {
       setUser({
         ...user,
