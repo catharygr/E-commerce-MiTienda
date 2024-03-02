@@ -6,6 +6,7 @@ import {
   addProductThunk,
   updateProductThunk,
 } from "../redux/reducers/productsReducer";
+import { useForm } from "react-hook-form";
 
 export default function useProducts() {
   const products = useSelector(getAllProducts);
@@ -17,6 +18,13 @@ export default function useProducts() {
     title: "",
     description: "",
   });
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    trigger,
+  } = useForm();
 
   // Función que se ejecuta en el formulario del modal - onSubmit
   const handleSubmitForm = (e) => {
@@ -80,5 +88,10 @@ export default function useProducts() {
     setModalType,
     openEditProductModal,
     handleSubmitForm,
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    trigger,
   };
 }

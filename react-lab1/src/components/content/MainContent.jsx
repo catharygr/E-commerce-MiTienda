@@ -20,6 +20,11 @@ export default function MainContent() {
     setModalType,
     openEditProductModal,
     handleSubmitForm,
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    trigger,
   } = useProducts();
   const [searchParams] = useSearchParams();
   const search = searchParams.get("search");
@@ -75,6 +80,11 @@ export default function MainContent() {
           modalType={modalType}
           setIsModalOpen={setIsModalOpen}
           handleSubmitForm={handleSubmitForm}
+          register={register}
+          handleSubmit={handleSubmit}
+          watch={watch}
+          errors={errors}
+          trigger={trigger}
         />
       )}
     </>
