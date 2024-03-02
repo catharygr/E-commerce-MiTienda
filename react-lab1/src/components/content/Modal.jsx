@@ -43,12 +43,12 @@ export default function Modal({
           <input
             type="text"
             id="title"
-            value={form.title}
-            onChange={(e) => setForm({ ...form, title: e.target.value })}
             {...register("title", {
               required: "Por favor, ingrese un título",
               onBlur: () => trigger("title"),
             })}
+            value={form.title}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
           <label htmlFor="price">Price</label>
           {errors.price && (
@@ -57,12 +57,12 @@ export default function Modal({
           <input
             type="text"
             id="price"
-            value={form.price}
-            onChange={(e) => setForm({ ...form, price: e.target.value })}
             {...register("price", {
               required: "Por favor, ingrese un precio",
               onBlur: () => trigger("price"),
             })}
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
           />
           <label htmlFor="description">Description</label>
           {errors.description && (
@@ -71,12 +71,12 @@ export default function Modal({
           <textarea
             type="text"
             id="description"
-            value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
             {...register("description", {
               required: "Por favor, ingrese una descripción",
               onBlur: () => trigger("description"),
             })}
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
           <label htmlFor="image">Image</label>
           {errors.image && (
@@ -85,12 +85,12 @@ export default function Modal({
           <input
             type="text"
             id="image"
-            value={form.image}
-            onChange={(e) => setForm({ ...form, image: e.target.value })}
             {...register("image", {
               required: "Por favor, ingrese una imagen",
               onBlur: () => trigger("image"),
             })}
+            value={form.image}
+            onChange={(e) => setForm({ ...form, image: e.target.value })}
           />
           <button type="submit">Guardar</button>
         </form>

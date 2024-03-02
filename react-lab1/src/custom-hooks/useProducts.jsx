@@ -16,6 +16,7 @@ export default function useProducts() {
     price: "",
     title: "",
     description: "",
+    image: "",
   });
 
   // Función que se ejecuta en el formulario del modal - onSubmit
@@ -64,10 +65,6 @@ export default function useProducts() {
     );
     setForm({
       ...filteredProduct[0],
-      // price: filteredProduct[0].price,
-      // title: filteredProduct[0].title,
-      // description: filteredProduct[0].description,
-      // id: filteredProduct[0].id,
     });
     setIsModalOpen(true);
   };
