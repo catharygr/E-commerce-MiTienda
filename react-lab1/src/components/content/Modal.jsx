@@ -85,8 +85,25 @@ export default function Modal({
           <input
             type="text"
             id="image"
+            // {...register("image", {
+            //   required: "Por favor, ingrese una imagen",
+            //   onBlur: () => trigger("image"),
+            // })}
             {...register("image", {
-              required: "Por favor, ingrese una imagen",
+              required: "Please enter an image URL",
+              validate: (value) => {
+                let pattern = new RegExp(
+                  "^(https?:\\/\\/)?" + // protocol
+                    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name and extension
+                    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+                    "(\\:\\d+)?" + // port
+                    "(\\/[-a-z\\d%_.~+]*)*" + // path
+                    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+                    "(\\#[-a-z\\d_]*)?$",
+                  "i"
+                ); // fragment locator
+                return !!pattern.test(value) || "Please enter a valid URL";
+              },
               onBlur: () => trigger("image"),
             })}
             value={form.image}

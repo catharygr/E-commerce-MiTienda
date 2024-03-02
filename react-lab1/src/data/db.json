@@ -241,6 +241,13 @@
       "price": "12",
       "description": "Nuevo",
       "image": "https://via.placeholder.com/150/92c952"
+    },
+    {
+      "id": "1ddb6839-6dc8-4184-ad51-703b83e8295f",
+      "title": "",
+      "price": "",
+      "description": "",
+      "image": "https://via.placeholder.com/150/92c952"
     }
   ]
 }
