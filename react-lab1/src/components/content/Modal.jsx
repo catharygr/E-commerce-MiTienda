@@ -1,23 +1,23 @@
 /* eslint-disable react/prop-types */
 import "./Modal.css";
 import { XCircle } from "react-feather";
+import { useForm } from "react-hook-form";
 
 export default function Modal({
   setIsModalOpen,
-  // form,
-  // setForm,
+  form,
+  setForm,
   modalType,
   handleSubmitForm,
-  register,
-  handleSubmit,
-  watch,
-  errors,
-  trigger,
 }) {
-  const onSubmit = handleSubmit((form) => {
-    console.log(form);
-    handleSubmitForm(form);
-  });
+  const {
+    register,
+    // handleSubmit,
+    // watch,
+    formState: { errors },
+    trigger,
+  } = useForm();
+
   return (
     <div className="edit-modal">
       <div className="edit-modal-content">
@@ -33,7 +33,7 @@ export default function Modal({
           <h2>Modificar Producto</h2>
         )}
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmitForm}
           className="form-modal-container"
         >
           <label htmlFor="title">Title</label>
@@ -43,13 +43,12 @@ export default function Modal({
           <input
             type="text"
             id="title"
+            value={form.title}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
             {...register("title", {
               required: "Por favor, ingrese un título",
               onBlur: () => trigger("title"),
             })}
-            // name="title"
-            // value={form.title}
-            // onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
           <label htmlFor="price">Price</label>
           {errors.price && (
@@ -58,9 +57,8 @@ export default function Modal({
           <input
             type="text"
             id="price"
-            // name="price"
-            // value={form.price}
-            // onChange={(e) => setForm({ ...form, price: e.target.value })}
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
             {...register("price", {
               required: "Por favor, ingrese un precio",
               onBlur: () => trigger("price"),
@@ -73,12 +71,25 @@ export default function Modal({
           <textarea
             type="text"
             id="description"
-            // name="description"
-            // value={form.description}
-            // onChange={(e) => setForm({ ...form, description: e.target.value })}
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
             {...register("description", {
               required: "Por favor, ingrese una descripción",
               onBlur: () => trigger("description"),
+            })}
+          />
+          <label htmlFor="image">Image</label>
+          {errors.image && (
+            <p className="modal-form-error-msg">{errors.image.message}</p>
+          )}
+          <input
+            type="text"
+            id="image"
+            value={form.image}
+            onChange={(e) => setForm({ ...form, image: e.target.value })}
+            {...register("image", {
+              required: "Por favor, ingrese una imagen",
+              onBlur: () => trigger("image"),
             })}
           />
           <button type="submit">Guardar</button>

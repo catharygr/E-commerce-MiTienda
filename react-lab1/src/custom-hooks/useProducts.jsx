@@ -6,29 +6,21 @@ import {
   addProductThunk,
   updateProductThunk,
 } from "../redux/reducers/productsReducer";
-import { useForm } from "react-hook-form";
 
 export default function useProducts() {
   const products = useSelector(getAllProducts);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
-  // const [form, setForm] = useState({
-  //   price: "",
-  //   title: "",
-  //   description: "",
-  // });
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-    trigger,
-  } = useForm();
+  const [form, setForm] = useState({
+    price: "",
+    title: "",
+    description: "",
+  });
 
   // Función que se ejecuta en el formulario del modal - onSubmit
-  const handleSubmitForm = (form) => {
-    // e.preventDefault();
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
 
     if (modalType === "new") {
       const newProduct = {
@@ -71,27 +63,23 @@ export default function useProducts() {
       (product) => product.id.toString() === id.toString()
     );
     setForm({
-      price: filteredProduct[0].price,
-      title: filteredProduct[0].title,
-      description: filteredProduct[0].description,
-      id: filteredProduct[0].id,
+      ...filteredProduct[0],
+      // price: filteredProduct[0].price,
+      // title: filteredProduct[0].title,
+      // description: filteredProduct[0].description,
+      // id: filteredProduct[0].id,
     });
     setIsModalOpen(true);
   };
 
   return {
-    // form,
-    // setForm,
+    form,
+    setForm,
     isModalOpen,
     setIsModalOpen,
     modalType,
     setModalType,
     openEditProductModal,
     handleSubmitForm,
-    register,
-    handleSubmit,
-    watch,
-    errors,
-    trigger,
   };
 }
