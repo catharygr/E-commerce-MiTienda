@@ -31,6 +31,7 @@ export default function MainContent() {
       title: "",
       price: "",
       description: "",
+      image: "https://via.placeholder.com/150/92c952",
     });
     setModalType("new");
     setIsModalOpen(true);

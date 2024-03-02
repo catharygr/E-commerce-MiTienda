@@ -28,7 +28,7 @@ export default function useProducts() {
         title: form.title,
         price: form.price,
         description: form.description,
-        image: "https://via.placeholder.com/150/92c952",
+        image: form.image,
       };
 
       try {
