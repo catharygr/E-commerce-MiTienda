@@ -69,3 +69,8 @@
   cursor: pointer;
   text-align: center;
 }
+
+.modal-form-error-msg {
+  color: red;
+  font-size: 0.8rem;
+}

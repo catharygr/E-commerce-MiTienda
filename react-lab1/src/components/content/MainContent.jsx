@@ -12,10 +12,10 @@ export default function MainContent() {
   const products = useSelector(getAllProducts);
   const { user } = useContext(UserContext);
   const {
-    form,
+    // form,
     isModalOpen,
     modalType,
-    setForm,
+    // setForm,
     setIsModalOpen,
     setModalType,
     openEditProductModal,
@@ -32,11 +32,11 @@ export default function MainContent() {
   if (!products) return;
 
   const handleNewProductModal = () => {
-    setForm({
-      title: "",
-      price: "",
-      description: "",
-    });
+    // setForm({
+    //   title: "",
+    //   price: "",
+    //   description: "",
+    // });
     setModalType("new");
     setIsModalOpen(true);
   };
@@ -57,7 +57,7 @@ export default function MainContent() {
       setIsModalOpen={setIsModalOpen}
       product={product}
       openEditProductModal={openEditProductModal}
-      form={form}
+      // form={form}
       setModalType={setModalType}
     />
   ));
@@ -75,8 +75,8 @@ export default function MainContent() {
       )}
       {user.role === "admin" && isModalOpen && (
         <Modal
-          form={form}
-          setForm={setForm}
+          // form={form}
+          // setForm={setForm}
           modalType={modalType}
           setIsModalOpen={setIsModalOpen}
           handleSubmitForm={handleSubmitForm}

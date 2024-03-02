@@ -13,11 +13,11 @@ export default function useProducts() {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
-  const [form, setForm] = useState({
-    price: "",
-    title: "",
-    description: "",
-  });
+  // const [form, setForm] = useState({
+  //   price: "",
+  //   title: "",
+  //   description: "",
+  // });
   const {
     register,
     handleSubmit,
@@ -27,8 +27,8 @@ export default function useProducts() {
   } = useForm();
 
   // Función que se ejecuta en el formulario del modal - onSubmit
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
+  const handleSubmitForm = (form) => {
+    // e.preventDefault();
 
     if (modalType === "new") {
       const newProduct = {
@@ -80,8 +80,8 @@ export default function useProducts() {
   };
 
   return {
-    form,
-    setForm,
+    // form,
+    // setForm,
     isModalOpen,
     setIsModalOpen,
     modalType,
