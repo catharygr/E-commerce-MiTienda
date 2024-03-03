@@ -63,10 +63,14 @@ export default function Modal({
             <p className="modal-form-error-msg">{errors.price.message}</p>
           )}
           <input
-            type="text"
+            type="number"
             id="price"
             {...register("price", {
               required: "Por favor, ingrese un precio",
+              min: {
+                value: 0.01,
+                message: "El precio no puede ser menor a 0.01",
+              },
               onBlur: () => trigger("price"),
             })}
             value={form.price}
@@ -94,6 +98,28 @@ export default function Modal({
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
+      <label htmlFor="category">Category</label>
+      {errors.category && (
+            <p className="modal-form-error-msg">{errors.category.message}</p>
+          )}
+    <input type="text" id="category" {...register("category", {
+        required: "Please enter a category",
+        maxLength: {
+          value: 20,
+          message: "The category cannot have more than 40 characters",
+        },
+        minLength: {
+          value: 3,
+          message: "The category cannot have less than 5 characters",
+        },
+        onBlur: () => trigger("category"),
+      })} 
+      value={form.category} 
+      onChange={(e) => setForm({ ...form, category: e.target.value
+    })} 
+
+
+
           <label htmlFor="image">Image</label>
           {errors.image && (
             <p className="modal-form-error-msg">{errors.image.message}</p>
@@ -101,10 +127,6 @@ export default function Modal({
           <input
             type="text"
             id="image"
-            // {...register("image", {
-            //   required: "Por favor, ingrese una imagen",
-            //   onBlur: () => trigger("image"),
-            // })}
             {...register("image", {
               required: "Please enter an image URL",
               validate: (value) => {
