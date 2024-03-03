@@ -73,6 +73,14 @@ export default function Modal({
             id="description"
             {...register("description", {
               required: "Por favor, ingrese una descripción",
+              maxLength: {
+                value: 200,
+                message: "La descripción no puede tener más de 200 caracteres",
+              },
+              minLength: {
+                value: 10,
+                message: "La descripción no puede tener menos de 10 caracteres",
+              },
               onBlur: () => trigger("description"),
             })}
             value={form.description}
