@@ -98,27 +98,28 @@ export default function Modal({
             value={form.description}
             onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
-      <label htmlFor="category">Category</label>
-      {errors.category && (
+          <label htmlFor="category">Category</label>
+          {errors.category && (
             <p className="modal-form-error-msg">{errors.category.message}</p>
           )}
-    <input type="text" id="category" {...register("category", {
-        required: "Please enter a category",
-        maxLength: {
-          value: 20,
-          message: "The category cannot have more than 40 characters",
-        },
-        minLength: {
-          value: 3,
-          message: "The category cannot have less than 5 characters",
-        },
-        onBlur: () => trigger("category"),
-      })} 
-      value={form.category} 
-      onChange={(e) => setForm({ ...form, category: e.target.value
-    })} 
-
-
+          <input
+            type="text"
+            id="category"
+            {...register("category", {
+              required: "Please enter a category",
+              maxLength: {
+                value: 20,
+                message: "The category cannot have more than 40 characters",
+              },
+              minLength: {
+                value: 3,
+                message: "The category cannot have less than 5 characters",
+              },
+              onBlur: () => trigger("category"),
+            })}
+            value={form.category}
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+          />
 
           <label htmlFor="image">Image</label>
           {errors.image && (

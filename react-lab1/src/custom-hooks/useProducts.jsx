@@ -16,6 +16,7 @@ export default function useProducts() {
     price: "",
     title: "",
     description: "",
+    category: "",
     image: "",
   });
 
@@ -29,6 +30,7 @@ export default function useProducts() {
         title: form.title,
         price: form.price,
         description: form.description,
+        category: form.category,
         image: form.image,
       };
 
@@ -49,6 +51,8 @@ export default function useProducts() {
         title: form.title,
         price: form.price,
         description: form.description,
+        category: form.category,
+        image: form.image,
       };
       try {
         dispatch(updateProductThunk(editedProduct));
