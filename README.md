@@ -1,12 +1,19 @@
-# Qualentum React: Lab5
+# Qualentum React: Lab6
 
-## Redux- Redux Toolkit
-- Según lo pedido en el problema he modificado el contexto de los productos del app que tiene comunicación HTTP.
--  Lo he pasado totalmente a Redux, sin perder su funcionalidad ni en cuanto a gestiones de errores, ni en cuanto a componentes visuales mostrados en tiempo de espera.
-- He creacdo los cuatros Thunks para manipular los productos con el método createAsyncThunk().
-- He creado Slice de los productos con los caso correnspondientes a los thunks, para manipilar los tres estados, fullfiled, pending, rejected.
-- Para la solicitudes a API he creado cuatro acciones/middleware que solamente manipulan peticiones CRUD.
-- Esta funciones se llaman desde sus thunks correspondientes.
+## Hook useForm 
+- He cambiado la gestión de los formularios a React Hook Form
+- He aplicado la validación de sus campos sobre posibles errores que puedan surgir cuando el usuario introduzca sus datos.
+- He añadido el campo de la contraseña y uno nuevo para repetir la contraseña.
+- Para eso he incluido dos inputs en el formulario del componente LoginForm.jsx con sus validaciones para ambos campos
+- Utilizando useForm he controlado los formularios y he compartido las indicaciones a los usuarios de forma instantánea 
+- He desarrollado los criterios mínimos de validación: 
+  • Campos requeridos.
+  • Password y repetir password coincidentes.
+  • Formato en e-mail y en la URL de la imagen para un
+  producto.
+  • Textos (nombre, descripción del objeto y categoría del
+  objeto) con longitudes máximas y mínimas.
+  • Precio de los productos mayor que cero.
 
 Un saludo.
 
