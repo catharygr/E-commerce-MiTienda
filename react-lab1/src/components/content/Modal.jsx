@@ -46,6 +46,14 @@ export default function Modal({
             {...register("title", {
               required: "Por favor, ingrese un título",
               onBlur: () => trigger("title"),
+              maxLength: {
+                value: 40,
+                message: "El título no puede tener más de 40 caracteres",
+              },
+              minLength: {
+                value: 5,
+                message: "El título no puede tener menos de 5 caracteres",
+              },
             })}
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
