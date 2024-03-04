@@ -21,7 +21,7 @@ export default function useProducts() {
   });
 
   // Función que se ejecuta en el formulario del modal - onSubmit
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
 
     if (modalType === "new") {
