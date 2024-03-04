@@ -12,8 +12,6 @@ export default function Modal({
 }) {
   const {
     register,
-    // handleSubmit,
-    // watch,
     formState: { errors },
     trigger,
   } = useForm();
