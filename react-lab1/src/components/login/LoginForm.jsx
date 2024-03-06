@@ -16,36 +16,6 @@ export default function LoginForm() {
     trigger,
   } = useForm();
 
-  // const handleSubmitForm = (e) => {
-  //   e.preventDefault();
-
-  // if (user.isLogged) {
-  //   setUser({
-  //     ...user,
-  //     isLogged: false,
-  //     role: "user",
-  //   });
-  //   navigate("/");
-  // } else if (!user.isLogged) {
-  //   if (!form.name || !form.email) {
-  //     alert("Por favor, rellena todos los campos");
-  //     return;
-  // }
-
-  //   const userEmail = form.email.trim();
-  //   const role = userEmail.includes("@admin") ? "admin" : "user";
-
-  //   setUser({
-  //     ...user,
-  //     ...form,
-  //     isLogged: true,
-  //     role,
-  //   });
-  //   reset();
-  //   navigate(location.state?.pathname);
-  // }
-  // };
-
   const onSubmit = handleSubmit((form) => {
     if (user.isLogged) {
       setUser({
