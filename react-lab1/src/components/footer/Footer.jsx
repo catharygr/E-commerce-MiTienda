@@ -12,7 +12,7 @@ export default function Footer() {
         <ul>
           <li>Contacto</li>
           <li>Email: email.com</li>
-          <li>Teléfono</li>
+          <li>Teléfono: +34 333 222 333</li>
         </ul>
         <ul>
           <li>Redes Sociales</li>
