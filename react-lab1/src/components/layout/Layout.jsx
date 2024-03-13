@@ -13,15 +13,6 @@ import {
   getProductsThunk,
 } from "../../redux/reducers/productsReducer";
 
-// import * as oldData from "../../data/db copy.json";
-// import { db } from "../../api/firebase";
-// import { doc, setDoc } from "firebase/firestore";
-
-// oldData.products.forEach(async (product) => {
-//   const caty = product.id.toString();
-//   await setDoc(doc(db, "products", caty), product);
-// });
-
 export default function Layout() {
   const dispatch = useDispatch();
   const loading = useSelector(getProductsLoading);
