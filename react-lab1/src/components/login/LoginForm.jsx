@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../../contextos/UserContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { auth } from "../../api/firebase";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
@@ -18,6 +20,14 @@ export default function LoginForm() {
 
   const onSubmit = handleSubmit((form) => {
     if (user.isLogged) {
+      signOut(auth)
+        .then(() => {
+          console.log("Sign-out successful");
+        })
+        .catch((error) => {
+          console.log("An error happened", error);
+        });
+
       setUser({
         ...user,
         isLogged: false,
@@ -31,7 +41,18 @@ export default function LoginForm() {
       }
 
       const userEmail = form.email.trim();
-      const role = userEmail.includes("@admin") ? "admin" : "user";
+      const role = userEmail.includes("@bubulazi") ? "admin" : "user";
+
+      signInWithEmailAndPassword(auth, form.email, form.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
 
       setUser({
         ...user,
