@@ -1,4 +1,6 @@
 import axios from "axios";
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const API_URL = "http://localhost:3000/products";
 
@@ -28,8 +30,14 @@ export const updateProductMiddleware = async (product) => {
 
 export const getProductsMiddleware = async () => {
   try {
-    const response = await axios.get(API_URL);
-    return response.data;
+    const querySnapshot = await getDocs(collection(db, "products"));
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data());
+    });
+    return data;
+    // const response = await axios.get(API_URL);
+    // return response.data;
   } catch (error) {
     throw new Error(error.message);
   }
