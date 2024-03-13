@@ -4,6 +4,7 @@ import { UserContext } from "../../contextos/UserContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { auth } from "../../api/firebase";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default function LoginForm() {
   const { user, setUser } = useContext(UserContext);
