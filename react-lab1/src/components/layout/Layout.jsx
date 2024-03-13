@@ -5,15 +5,22 @@ import { Outlet } from "react-router-dom";
 import Promotion from "../promotion/Promotion";
 import Loader from "../loader/Loader";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Error from "../error/Error";
 import {
   getProductsLoading,
   getProductsError,
   getProductsThunk,
 } from "../../redux/reducers/productsReducer";
-import Error from "../error/Error";
-import * as oldData from "../../data/db copy.json";
 
-import { useDispatch, useSelector } from "react-redux";
+// import * as oldData from "../../data/db copy.json";
+// import { db } from "../../api/firebase";
+// import { doc, setDoc } from "firebase/firestore";
+
+// oldData.products.forEach(async (product) => {
+//   const caty = product.id.toString();
+//   await setDoc(doc(db, "products", caty), product);
+// });
 
 export default function Layout() {
   const dispatch = useDispatch();
