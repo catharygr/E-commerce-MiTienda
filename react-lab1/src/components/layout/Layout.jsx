@@ -11,6 +11,7 @@ import {
   getProductsThunk,
 } from "../../redux/reducers/productsReducer";
 import Error from "../error/Error";
+import * as oldData from "../../data/db copy.json";
 
 import { useDispatch, useSelector } from "react-redux";
 
