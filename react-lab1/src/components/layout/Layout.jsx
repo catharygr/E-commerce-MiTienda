@@ -24,17 +24,14 @@ export default function Layout() {
 
   useEffect(() => {
     dispatch(getProductsThunk());
+    onAuthStateChanged(auth, (userAuth) => {
+      if (userAuth) {
+        setUser({ ...user, isLogged: true });
+      } else {
+        setUser({ ...user, isLogged: false });
+      }
+    });
   }, []);
-
-  onAuthStateChanged(auth, (userAuth) => {
-    if (userAuth) {
-      setUser({ ...user, isLogged: true });
-      // console.log("User is signed in");
-    } else {
-      setUser({ isLogged: false });
-      // console.log("User is signed out");
-    }
-  });
 
   return (
     <>

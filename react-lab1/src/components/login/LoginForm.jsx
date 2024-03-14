@@ -20,13 +20,7 @@ export default function LoginForm() {
 
   const onSubmit = handleSubmit((form) => {
     if (user.isLogged) {
-      signOut(auth)
-        .then(() => {
-          console.log("Sign-out successful");
-        })
-        .catch((error) => {
-          console.log("An error happened", error);
-        });
+      signOut(auth);
 
       setUser({
         ...user,
@@ -43,16 +37,7 @@ export default function LoginForm() {
       const userEmail = form.email.trim();
       const role = userEmail.includes("@bubulazi") ? "admin" : "user";
 
-      signInWithEmailAndPassword(auth, form.email, form.password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
+      signInWithEmailAndPassword(auth, form.email, form.password);
 
       setUser({
         ...user,
