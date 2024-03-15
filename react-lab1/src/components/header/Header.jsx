@@ -38,7 +38,7 @@ export default function Header() {
           className="header-btn"
           type="submit"
         >
-          <Search size={18} />
+          <Search size={15} />
         </button>
       </form>
       <HeaderAccountMenu />

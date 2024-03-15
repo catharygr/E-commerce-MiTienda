@@ -32,7 +32,8 @@ export default function MainContent() {
       price: "",
       description: "",
       category: "",
-      image: "https://via.placeholder.com/150/92c952",
+      // image: "https://via.placeholder.com/150/92c952",
+      image: "https://placehold.co/300x200/orange/white ",
     });
     setModalType("new");
     setIsModalOpen(true);
