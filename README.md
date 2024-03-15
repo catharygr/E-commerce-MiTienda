@@ -3,7 +3,7 @@
 https://qualentum-ecommerce-catary.netlify.app
 
 ## Proyecto de una tienda ficticia - Orientado por el profesor y desarrollado por mi.
-### lab 1 -  Se ha solicitado, crear la extructura básica de un ecommerce estático, salvo la barra de búsqueda dónde aparecian sólo quellos elementos cuyo nombrecontenga el texto que introduzca el usuario la mencionada barra de búsqueda.
+### lab 1 -  Se ha solicitado, crear la extructura básica de un ecommerce estático, salvo la barra de búsqueda dónde aparecian sólo quellos elementos cuyo nombre contenga el texto que introduzca el usuario.
 - Para esto he ceado en Header.jsx un useState para controlar el formulario con el input.
 - En el App.jsx cuando recibo el término de busqueda del usuario que he recibido de Header.jsx lo paso al componente MainContent.jsx.
 ### Lab 2 -  Añadir nuevas funcionalidades con Hooks
