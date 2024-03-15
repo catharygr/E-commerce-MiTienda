@@ -32,7 +32,6 @@ export default function MainContent() {
       price: "",
       description: "",
       category: "",
-      // image: "https://via.placeholder.com/150/92c952",
       image: "https://placehold.co/300x200/orange/white ",
     });
     setModalType("new");
@@ -74,7 +73,6 @@ export default function MainContent() {
       {user.role === "admin" && isModalOpen && (
         <Modal
           form={form}
-          setForm={setForm}
           modalType={modalType}
           setIsModalOpen={setIsModalOpen}
           handleSubmitForm={handleSubmitForm}
