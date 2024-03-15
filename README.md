@@ -1,23 +1,19 @@
-# Qualentum React: Lab6
+# Qualentum E-commerce Mi tienda
 
-## Hook useForm 
-- He cambiado la gestión de los formularios a React Hook Form
-- He aplicado la validación de sus campos sobre posibles errores que puedan surgir cuando el usuario introduzca sus datos.
-- He añadido el campo de la contraseña y uno nuevo para repetir la contraseña.
-- Para eso he incluido dos inputs en el formulario del componente LoginForm.jsx con sus validaciones para ambos campos
-- Utilizando useForm he controlado los formularios y he compartido las indicaciones a los usuarios de forma instantánea 
-- He desarrollado los criterios mínimos de validación: 
-  • Campos requeridos.
-  • Password y repetir password coincidentes.
-  • Formato en e-mail y en la URL de la imagen para un
-  producto.
-  • Textos (nombre, descripción del objeto y categoría del
-  objeto) con longitudes máximas y mínimas.
-  • Precio de los productos mayor que cero.
+## Firebase
+- He utilizado Axios para crear un CRUD y JSON Server como servidor de desarrollo. Luego he  pasado los datos a Firebase y he compilado la app en Netlify.",
 
-Un saludo.
+### Este código se usó para traladar la data de un archivo JSON a Firestore
 
+import * as oldData from "../../data/db-backup.json";
+import { db } from "../../api/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
+Iterate over the products array
+oldData.products.forEach(async (product) => {
+const string = product.id.toString();
+await setDoc(doc(db, "products", string), product);
+});
 
 
 
