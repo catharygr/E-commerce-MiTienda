@@ -21,17 +21,15 @@ export default function useProducts() {
   });
 
   // Función que se ejecuta en el formulario del modal - onSubmit
-  const handleSubmitForm = async (e) => {
-    e.preventDefault();
-
+  const handleSubmitForm = async (forData) => {
     if (modalType === "new") {
       const newProduct = {
         id: uuidv4(),
-        title: form.title,
-        price: form.price,
-        description: form.description,
-        category: form.category,
-        image: form.image,
+        title: forData.title,
+        price: forData.price,
+        description: forData.description,
+        category: forData.category,
+        image: forData.image,
       };
 
       try {
@@ -44,15 +42,15 @@ export default function useProducts() {
 
     if (modalType === "edit") {
       const findProduct = products?.find(
-        (product) => product.id.toString() === form.id.toString()
+        (product) => product.id.toString() === forData.id.toString()
       );
       const editedProduct = {
         ...findProduct,
-        title: form.title,
-        price: form.price,
-        description: form.description,
-        category: form.category,
-        image: form.image,
+        title: forData.title,
+        price: forData.price,
+        description: forData.description,
+        category: forData.category,
+        image: forData.image,
       };
       try {
         dispatch(updateProductThunk(editedProduct));

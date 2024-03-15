@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 export default function Modal({
   setIsModalOpen,
   form,
-  setForm,
   modalType,
   handleSubmitForm,
 }) {
@@ -14,7 +13,12 @@ export default function Modal({
     register,
     formState: { errors },
     trigger,
-  } = useForm();
+    handleSubmit,
+  } = useForm({ defaultValues: form });
+
+  const onSubmit = (formData) => {
+    handleSubmitForm(formData);
+  };
 
   return (
     <div className="edit-modal">
@@ -31,7 +35,7 @@ export default function Modal({
           <h2>Modificar Producto</h2>
         )}
         <form
-          onSubmit={handleSubmitForm}
+          onSubmit={handleSubmit(onSubmit)}
           className="form-modal-container"
         >
           <label htmlFor="title">Title</label>
@@ -53,8 +57,6 @@ export default function Modal({
                 message: "El título no puede tener menos de 5 caracteres",
               },
             })}
-            value={form.title}
-            onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
           <label htmlFor="price">Price</label>
           {errors.price && (
@@ -71,8 +73,6 @@ export default function Modal({
               },
               onBlur: () => trigger("price"),
             })}
-            value={form.price}
-            onChange={(e) => setForm({ ...form, price: e.target.value })}
           />
           <label htmlFor="description">Description</label>
           {errors.description && (
@@ -93,8 +93,6 @@ export default function Modal({
               },
               onBlur: () => trigger("description"),
             })}
-            value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
           <label htmlFor="category">Category</label>
           {errors.category && (
@@ -115,8 +113,6 @@ export default function Modal({
               },
               onBlur: () => trigger("category"),
             })}
-            value={form.category}
-            onChange={(e) => setForm({ ...form, category: e.target.value })}
           />
 
           <label htmlFor="image">Image</label>
@@ -143,8 +139,6 @@ export default function Modal({
               },
               onBlur: () => trigger("image"),
             })}
-            value={form.image}
-            onChange={(e) => setForm({ ...form, image: e.target.value })}
           />
           <button type="submit">Guardar</button>
         </form>
