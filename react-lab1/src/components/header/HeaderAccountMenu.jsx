@@ -45,7 +45,7 @@ export default function HeaderAccountMenu() {
         <Link to="/cart">
           <ShoppingCart size={20} />
         </Link>
-        {user.shoppingCartItems.length !== 0 && (
+        {user.shoppingCartItems?.length !== 0 && (
           <span className="notification-cicle">
             {user.shoppingCartItems.length}
           </span>
