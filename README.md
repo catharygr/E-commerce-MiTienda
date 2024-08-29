@@ -1,4 +1,4 @@
-# Qualentum E-commerce Mi Tienda 
+## Qualentum E-commerce Mi Tienda 
 
 https://qualentum-ecommerce-catary.netlify.app
 
