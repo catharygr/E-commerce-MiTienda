@@ -1,7 +1,5 @@
 # Qualentum E-commerce Mi Tienda
 
-https://qualentum-ecommerce-catary.netlify.app
-
 ## Proyecto de una tienda ficticia - Orientado por el profesor y desarrollado por mi.
 
 ### lab 1 - Se ha solicitado, crear la extructura básica de un ecommerce estático, salvo la barra de búsqueda dónde aparecian sólo quellos elementos cuyo nombre contenga el texto que introduzca el usuario.
